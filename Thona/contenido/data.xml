@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<questions name="Rally">
+<question text="Thona Seguros inició operaciones en el año…" number="1">
+	<answer correct="false" number="1" text="2012" retro="2013" />
+	<answer correct="true" number="2" text="2013"  retro="" />
+	<answer correct="false" number="3" text="2014" retro="2013" />
+</question>
+<question text="Nuestro principio de responsabilidad social se refiere a…" number="2">
+	<answer correct="true" number="1" text="Contribuir activa, voluntaria y permanentemente al mejoramiento social, económico y ambiental de nuestro país. " retro="" />
+	<answer correct="false" number="2" text="Ofrecer el mejor servicio en siniestros con rapidez, calidez y eficiencia, apoyados en tecnología de vanguardia." retro="Contribuir activa, voluntaria y permanentemente al mejoramiento social, económico y ambiental de nuestro país." />
+	<answer correct="false" number="3" text="Asegurar la correcta emisión de calidad en puntos de venta con actualización inmediata de bases de datos." retro="Contribuir activa, voluntaria y permanentemente al mejoramiento social, económico y ambiental de nuestro país." />
+</question>
+<question text="El logotipo de Thona Seguros es la representación de…" number="3">
+	<answer correct="false" number="1" text="Un engrane que hace que todo funcione bien para nuestros asegurados." retro="Una estrella Otomí que guía el camino de nuestros asegurados." />
+	<answer correct="false" number="2" text="El sol que cuida el camino de nuestros clientes." retro="Una estrella Otomí que guía el camino de nuestros asegurados." />
+	<answer correct="true" number="3" text="Una estrella Otomí que guía el camino de nuestros asegurados." retro="" />
+</question>
+<question text="Son áreas que integran nuestra estructura organizacional." number="4">
+	<answer correct="false" number="1" text="Técnico y Mercadotecnia" retro="Comercial y Suscripción" />
+	<answer correct="false" number="2" text="Finanzas e Implementación" retro="Comercial y Suscripción" />
+	<answer correct="true" number="3" text="Comercial y Suscripción" retro="" />
+</question>
+<question text="¿Cuántos asegurados protege Thona Seguros actualmente?" number="5">
+	<answer correct="false" number="1" text="4,300 asegurados" retro="4.4 millones de asegurados" />
+	<answer correct="true" number="2" text="4.4 millones de asegurados" retro="" />
+	<answer correct="false" number="3" text="3.4 millones de asegurados" retro="4.4 millones de asegurados" />
+</question>
+<question text="Es una de las certificaciones más importantes que Thona mantiene desde hace 8 años." number="6">
+	<answer correct="true" number="1" text="Empresa Socialmente Responsable" retro="" />
+	<answer correct="false" number="2" text="Igualdad Laboral y No Discriminación" retro="Empresa Socialmente Responsable" />
+	<answer correct="false" number="3" text="ISO 9001 de Calidad" retro="Empresa Socialmente Responsable" />
+</question>
+<question text="¿Cuál es la principal ventaja de ViFlex?" number="7">
+	<answer correct="true" number="1" text="Combinar libremente las coberturas de Vida y Accidentes Personales" retro="" />
+	<answer correct="false" number="2" text="Pagar solo la mitad del costo total el primer año de servicio" retro="Combinar libremente las coberturas de Vida y Accidentes Personales"/>
+	<answer correct="false" number="3" text="Combinar libremente las coberturas de gastos médicos mayores y Elite" retro="Combinar libremente las coberturas de Vida y Accidentes Personales" />
+</question>
+<question text="Forma parte de las coberturas básicas de ViCapital." number="8">
+	<answer correct="false" number="1" text="Gastos funerarios" retro="Fallecimiento" />
+	<answer correct="false" number="2" text="Incapacidad total temporal" retro="Fallecimiento" />
+	<answer correct="true" number="3" text="Fallecimiento" retro="" />
+</question>
+<question text="Thona Seguros actualmente se posiciona dentro de..." number="9">
+	<answer correct="false" number="1" text="Las mejores 30 aseguradoras de México" retro="Las mejores 20 aseguradoras de México" />
+	<answer correct="true" number="2" text="Las mejores 20 aseguradoras de México" retro="" />
+	<answer correct="false" number="3" text="Las mejores 10 aseguradoras del mundo" retro="Las mejores 20 aseguradoras de México" />
+</question>
+</questions>

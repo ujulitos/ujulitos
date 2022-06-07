@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<questions name="" backgroundButtonSelected="#16191E" backgroundButton="#797979">
+<question text=" " image="05_ejercicio_img/viflex.png" type="text" number="1">
+	<answer correct="true" number="1" text="Algunas de sus coberturas adicionales son: Muerte accidental colectiva, pérdidas orgánicas “A” o “B” por accidente e Intervención quirúrgica." retro="" />
+	<answer correct="false" number="2" text="Seguro de gastos médicos que brinda una compensación económica flexible en caso de ser diagnosticado con alguna de las enfermedades que cubre la póliza." retro="" />
+	<answer correct="true" number="3" text="Una de sus ventajas es que puede venderse de forma individual, y también para grupos y colectivos (empresas públicas o privadas de cualquier tamaño)." retro="" />
+	<answer correct="true" number="4" text="Seguro que combina los ramos de Vida y AP, y donde se puede elegir entre más de 40 coberturas para Individual y más de 20 para Grupo/Colectivo." retro="" />
+</question>
+<question text=" " image="05_ejercicio_img/gmprotec.png" type="text" number="2">
+	<answer correct="true" number="1" text="Seguro de Gastos Médicos Indemnizatorio que compensa económicamente al titular de la póliza." retro="" />
+	<answer correct="false" number="2" text="Cubre: Autismo, Deficiencias auditivas, Diabetes, Endocarditis, Leucemia aguda, Hemofilia, Tumores Malignos, Bocio nodular tóxico, etc." retro="" />
+	<answer correct="false" number="3" text="Seguro de gastos médicos mayores que brinda protección ante fuertes impactos económicos causados por enfermedades graves." retro="" />
+	<answer correct="true" number="4" text="Cubre: Alzheimer, Asma, Cáncer, Neumonía, Trasplante de órganos, Artritis reumatoide, Peritonitis, Apendicectomía, etc." retro="" />
+</question>
+<question text=" " image="05_ejercicio_img/covida.png" type="text" number="3">
+	<answer correct="false" number="1" text="Este seguro tiene ventajas adicionales para trabajadores del sector salud, es decir, médicos, enfermeras, administrativos y personas de apoyo en los hospitales." retro="" />
+	<answer correct="true" number="2" text="Es el mejor seguro contra la pandemia de Covid-19 y todas sus variantes, tiene coberturas amplias y sumas aseguradas duplicables." retro="" />
+	<answer correct="true" number="3" text="Las asistencias Thona que incluye son: Atención médica telefónica, asistencia psicológica telefónica y consulta a domicilio." retro="" />
+	<answer correct="false" number="4" text="Es el mejor seguro con cobertura internacional, que protege ante fuertes impactos económicos causados por el Covid-19 y otras enfermedades graves." retro="" />
+</question>
+<question text=" " image="05_ejercicio_img/vicapital.png" type="text" number="4">
+	<answer correct="false" number="1" text="Tiene la ventaja de poderse personalizar si se incluyen anexos como: aviación particular, actos delictivos, deportes peligrosos y suicidio." retro="" />
+	<answer correct="true" number="2" text="Algunas de sus ventajas son: que el cliente puede monitorear su ahorro, posibilidad de incorporar dinero extra en el ahorro y el beneficio de “Protección al Ahorro”" retro="" />
+	<answer correct="true" number="3" text="Es un seguro de vida que cuenta con un plan de ahorro temporal de un año, genera rendimientos a mediano y largo plazo y tiene 3 fondos de ahorro." retro="" />
+	<answer correct="false" number="4" text="Es un seguro de vida personalizable que garantiza el pago de saldos pendientes, evitándole pérdidas económicas al contratante y cuidando su capital." retro="" />
+</question>
+<question text=" " image="05_ejercicio_img/covid19.png" type="text" number="5">
+	<answer correct="false" number="1" text="Requiere prueba positiva a Covid 19 (antígeno y PCR) para cobrar este seguro y es un producto disponible para personal del sector salud." retro="" />
+	<answer correct="true" number="2" text="En caso del lamentable fallecimiento del titular este seguro cuenta con la cobertura de Gastos Funerarios y las coberturas pueden ampliarse a los familiares del asegurado." retro="" />
+	<answer correct="true" number="3" text="Garantiza un pago por cada día completo que el asegurado permanezca en un hospital público o privado." retro="" />
+	<answer correct="false" number="4" text="El mejor seguro contra la pandemia, ahora con coberturas amplias, enfermedades graves y sumas aseguradas duplicables." retro="" />
+</question>
+</questions>

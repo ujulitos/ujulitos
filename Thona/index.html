@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Language" content="es" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+
+    <script src="js/checkMobile.js"></script>
+    <script src="js/TweenMax.js"></script>
+    <script src="js/Buzz.min.js"></script>
+    <script src="js/Audios.min.js"></script>
+    <script src="js/Fancybox.js"></script>
+    <script src="js/Configuration.js"></script>
+    <script src="js/SCORM_API_wrapper.min.js"></script>
+    <script src="js/Conection.js"></script>
+    <script src="js/Time.min.js"></script>
+    <script src="js/mCustomScrollbar.min.js"></script>
+    <script src="js/Tracking.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/diploma.js"></script>
+    <script src="js/browserDct.min.js"></script>
+    <script src="js/spdDct.min.js"></script>
+    <script src="js/uJLApi.min.js"></script>
+    <link rel="stylesheet" href="css/Reset.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/Template.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/Fancybox.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="css/mCustomScrollbar.min.css" type="text/css" charset="utf-8" />
+    <title>eLearning</title>
+</head>
+<script src="js/Adapt.js"></script>
+
+<!-- <body onLoad="resetTimer()" onresize="loadContent()"> -->
+
+<body onLoad="resetTimer()" onresize=" setScale()">
+    <div id="box">
+        <div id="content"></div>
+        <div id="top"></div>
+        <div id="bottom">
+            <div id="logo"></div>
+        </div>
+        <div id="mapa"></div>
+        <div id="ayuda"></div>
+
+        <div id="progressBar">
+            <div id="progress"></div>
+            <div id="progressDatos"></div>
+        </div>
+
+        <div id="menuBar" class="menu">
+            <div id="txtTitulo" class="texto_titulo"></div> <!-- <div id="backBotones" class="btnNav back_botones"><img src="images/back_botones.png"></img></div> -->
+            <div id="btnTemario" class="btnNav btnNavOver boton_temario"><img src="images/boton_temario.png"></img></div>
+            <div class="btnNav texto_temario">Menú</div>
+            <!-- <div id="btnExit" class="btnNav btnNavOver boton_exit" style="display:none;"><img src="images/boton_salir.png"></img></div> -->
+            <!-- <div id="btnAudio" class="btnNav btnNavOver boton_audio">
+                <div id="btnAudio_on"><img src="images/boton_audio.png"></img></div>
+                <div id="btnAudio_off"><img src="images/boton_audio_off.png"></img></div>
+            </div> -->
+            <!-- <div id="btnReload" class="btnNav btnNavOver boton_reload"><img src="images/boton_actualizar.png"></img></div> -->
+            <!-- <div id="btnPausa" class="btnNav btnNavOver boton_pausa">
+                <div id="btnPausa_on"><img src="images/boton_pausa.png"></img></div>
+                <div id="btnPausa_off"><img src="images/boton_pausa_off.png"></img></div>
+            </div> -->
+            <!-- <div id="btnSubts" class="btnNav btnNavOver boton_subts">
+                <div id="btnSubts_on"><img src="images/boton_subtitulos.png"></img></div>
+                <div id="btnSubts_off"><img src="images/boton_subtitulos_off.png"></img></div>
+            </div> -->
+            <div id="btnHelp" class="btnNav btnNavOver boton_ayuda"><img src="images/boton_ayuda.png"></img></div>
+            <div class="btnNav texto_ayuda">Ayuda</div>
+            <div id="btnPrev" class="btnNav btnNavOver boton_prev"><img src="images/boton_atras.png"></img></div>
+            <!-- <div class="btnNav boton_prev_over"><img src="images/boton_atras_over.png"></img></div> -->
+            <div id="btnNext" class="btnNav btnNavOver boton_next"><img src="images/boton_adelante.png"></img></div>
+            <!-- <div class="btnNav boton_next_over"><img src="images/boton_adelante_over.png"></img></div> -->
+        </div>
+
+        <div id="temario" class="topics">
+            <div id="btnCerrarTemario" style="display:none;"><i class="fa fa-angle-double-right"></i></div>
+            <div id="temarioTitle"><span>TEMARIO</span></div>
+            <div id="items">
+
+                <div class="tema"><span>Introducción</span></div>
+                <div id="item2" _ID="0" class="linkPage"><i class="fa fa-square-o"></i><span>Introducción</span></div>
+                <div id="item3" _ID="2" class="linkPage"><i class="fa fa-square-o"></i><span>Ayuda</span></div>
+                <div id="item4" _ID="3" class="linkPage"><i class="fa fa-square-o"></i><span>Bienvenida</span></div>
+                <div id="item5" _ID="4" class="linkPage"><i class="fa fa-square-o"></i><span>Organización del curso</span></div>
+                <div id="item6" _ID="5" class="linkPage"><i class="fa fa-square-o"></i><span>Objetivo</span></div>
+
+                <div class="tema"><span>myBUY</span></div>
+                <div id="item9" _ID="7" class="linkPage"><i class="fa fa-square-o"></i><span>Implementación</span></div>
+                <div id="item11" _ID="10" class="linkPage"><i class="fa fa-square-o"></i><span>myBUY en PMF</span></div>
+                <div id="item14" _ID="11" class="linkPage"><i class="fa fa-square-o"></i><span>Procesos de abastecimientos</span></div>
+                <div id="item15" _ID="13" class="linkPage"><i class="fa fa-square-o"></i><span>Organigrama de Abastecimientos</span></div>
+                <div id="item17" _ID="15" class="linkPage"><i class="fa fa-square-o"></i><span>Organigrama de Indirectos</span></div>
+                <div id="item19" _ID="17" class="linkPage"><i class="fa fa-square-o"></i><span>Organigrama myBUY</span></div>
+                <div id="item21" _ID="19" class="linkPage"><i class="fa fa-square-o"></i><span>Categorías de compra en myBUY</span></div>
+                <div id="item22" _ID="21" class="linkPage"><i class="fa fa-square-o"></i><span>Fuentes de aprovisionamiento</span></div>
+                <div id="item26" _ID="22" class="linkPage"><i class="fa fa-square-o"></i><span>Política de Adquisiciones de Bienes y Servicios</span></div>
+                <div id="item28" _ID="26" class="linkPage"><i class="fa fa-square-o"></i><span>Generación de accesos</span></div>
+
+                <div class="tema"><span>Solicitudes y aprobaciones</span></div>
+                <div id="item30" _ID="28" class="linkPage"><i class="fa fa-square-o"></i><span>Tipos de requisiciones</span></div>
+                <div id="item32" _ID="30" class="linkPage"><i class="fa fa-square-o"></i><span>Requisiciones por catálogo</span></div>
+                <div id="item35" _ID="32" class="linkPage"><i class="fa fa-square-o"></i><span>Requisiciones Free Text o Artículo por encargo</span></div>
+                <div id="item37" _ID="35" class="linkPage"><i class="fa fa-square-o"></i><span>Category Cards</span></div>
+                <div id="item38" _ID="37" class="linkPage"><i class="fa fa-square-o"></i><span>Validación de la requisición</span></div>
+                <div id="item39" _ID="38" class="linkPage"><i class="fa fa-square-o"></i><span>Checklist de compradores</span></div>
+                <div id="item40" _ID="39" class="linkPage"><i class="fa fa-square-o"></i><span>Estados de las requisiciones</span></div>
+                <div id="item42" _ID="40" class="linkPage"><i class="fa fa-square-o"></i><span>Aprobaciones</span></div>
+                <div id="item43" _ID="42" class="linkPage"><i class="fa fa-square-o"></i><span>Escalamiento</span></div>
+
+                <div class="tema"><span>Recepciones y facturación</span></div>
+                <div id="item47" _ID="43" class="linkPage"><i class="fa fa-square-o"></i><span>Recepciones</span></div>
+                <div id="item48" _ID="44" class="linkPage"><i class="fa fa-square-o"></i><span>Facturación en myBUY</span></div>
+
+                <div class="tema"><span>Comunicación y soporte</span></div>
+                <div id="item49" _ID="48" class="linkPage"><i class="fa fa-square-o"></i><span>Breaking News</span></div>
+                <div id="item50" _ID="49" class="linkPage"><i class="fa fa-square-o"></i><span>Soporte</span></div>
+
+                <div class="tema"><span>Evaluación</span></div>
+                <div id="item52" _ID="51" class="linkPage"><i class="fa fa-square-o"></i><span>Evaluación</span></div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="modalBloq">
+        <div id="modalBloq_int" class="sub_element">
+            <img id="modalBloq_img" class="sub_element" src="images/modalBloq_img.png" />
+            <img id="modalBloq_boton" class="sub_element" src="images/modalBloq_boton.png" />
+        </div>
+    </div>
+
+    <div id="elDiplomaDIV"></div>
+    <div id="elNombre"></div>
+    <div id="laFecha"></div>
+
+
+    <div id="activar_audio">
+        <!-- <img id="cargando_audios" class="sub_element" src="images/cargando.gif" /> -->
+        <div id="cargando_audios" class="sub_element" style="width: 100px; height: 100px;"><svg style="margin: auto; background: transparent; display: block;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <g transform="translate(20 50)">
+                    <circle cx="0" cy="0" r="6" fill="#c1ff94" transform="scale(0.220385 0.220385)">
+                        <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                </g>
+                <g transform="translate(40 50)">
+                    <circle cx="0" cy="0" r="6" fill="#a9df95" transform="scale(0.564378 0.564378)">
+                        <animateTransform attributeName="transform" type="scale" begin="-0.25s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                </g>
+                <g transform="translate(60 50)">
+                    <circle cx="0" cy="0" r="6" fill="#7cdbcd" transform="scale(0.881747 0.881747)">
+                        <animateTransform attributeName="transform" type="scale" begin="-0.125s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                </g>
+                <g transform="translate(80 50)">
+                    <circle cx="0" cy="0" r="6" fill="#c1ff94" transform="scale(0.992922 0.992922)">
+                        <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                </g>
+            </svg>
+        </div>
+
+        <div id="activar_audio_int" class="sub_element">
+            <img id="activar_audio_img1" class="sub_element" src="images/activar_audio1.png" />
+            <img id="activar_audio_img2" class="sub_element" src="images/activar_audio2.png" />
+            <img id="activar_audio_in" class="sub_element" src="images/activar_audio_in.png" />
+            <img id="activar_audio_si" class="sub_element" src="images/activar_audio_si.png" />
+            <img id="activar_audio_no" class="sub_element" src="images/activar_audio_no.png" />
+        </div>
+    </div>
+    <div id="bloqueo"><img src="images/gira.png" /></div>
+
+
+
+
+
+
+
+</body>
+
+</html>

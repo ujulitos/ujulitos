@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<questions name="" backgroundButtonSelected="#16191E" backgroundButton="#797979">
+<question text=" " image="10_ejercicio_img/ideal.png" type="text" number="1">
+	<answer correct="true" number="1" text="Seguro de Gastos médicos mayores que representa el principio de la protección más completa para afrontar los gastos de accidentes, enfermedades o situaciones que pongan en riesgo la salud." retro="" />
+	<answer correct="true" number="2" text="La cobertura máxima por asegurado (por año póliza) es de USD 500.000 con opción de incrementarlo a USD 1,500,000" retro="" />
+	<answer correct="false" number="3" text="La cobertura máxima por asegurado (por año póliza) es de USD 5,000.000" retro="" />
+	<answer correct="false" number="4" text="Es el mejor Seguro de Gastos Médicos Mayores con cobertura internacional, que brinda la máxima protección contra todos los escenarios, además de ser un producto muy robusto." retro="" />
+</question>
+<question text=" " image="10_ejercicio_img/selecto.png" type="text" number="2">
+	<answer correct="false" number="1" text="Es un Seguro de Vida de contratación temporal, que se paga en dólares y protege a las personas que necesitan cubrir exigencias pasajeras o asegurar la continuidad de sus proyectos." retro="" />
+	<answer correct="true" number="2" text="La cobertura máxima por asegurado (por año póliza) es de USD 5,000.000" retro="" />
+	<answer correct="false" number="3" text="La cobertura máxima por asegurado (por año póliza) es de USD 7,000.000" retro="" />
+	<answer correct="true" number="4" text="Seguro de Gastos Médicos Mayores robusto con cobertura internacional, que ofrece protección ante fuertes impactos económicos, derivados de enfermedades, accidentes o tratamientos médicos costosos." retro="" />
+</question>
+<question text=" " image="10_ejercicio_img/optimo.png" type="text" number="3">
+	<answer correct="false" number="1" text="La cobertura máxima por asegurado (por año póliza) es de USD 500.000 con opción de incrementarlo a USD 1,500,000" retro="" />
+	<answer correct="true" number="2" text="Es el mejor Seguro de Gastos Médicos Mayores con cobertura internacional, que brinda la máxima protección contra todos los escenarios, además de ser un producto muy robusto." retro="" />
+	<answer correct="true" number="3" text="La cobertura máxima por asegurado (por año póliza) es de USD 7,000.000" retro="" />
+	<answer correct="false" number="4" text="Es un seguro de gastos médicos con cobertura internacional, que brinda una compensación económica en caso de ser diagnosticado con alguna de las enfermedades que cubre la póliza." retro="" />
+</question>
+<question text=" " image="10_ejercicio_img/vitalplus.png" type="text" number="4">
+	<answer correct="true" number="1" text="Es un Seguro de Vida de contratación temporal, que se paga en dólares y protege a las personas que necesitan cubrir exigencias pasajeras o asegurar la continuidad de sus proyectos." retro="" />
+	<answer correct="false" number="2" text="De forma básica cubre fallecimiento y algunas de sus coberturas adicionales son: Graves enfermedades, Incapacidad temporal, Intervención quirúrgica, Gastos funerarios, etc." retro="" />
+	<answer correct="false" number="3" text="Es un seguro de Vida y Gastos Médicos Mayores con cobertura internacional, que garantiza el acceso a los mejores hospitales, tecnología de punta y especialistas certificados." retro="" />
+	<answer correct="true" number="4" text="De forma básica cubre fallecimiento y algunas de sus coberturas adicionales son: Invalidez total y permanente, Muerte Accidental, Pérdidas orgánicas, Devolución de primas, etc." retro="" />
+</question>
+</questions>
