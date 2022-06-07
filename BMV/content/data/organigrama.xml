@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<personas>
+	<persona id="1" puesto="Consejo" nombre="Presidente: Jaime Ruiz Sacristán" foto="" />
+	<persona id="2" puesto="Dir. General Grupo BMV" nombre="José Oriol Bosch Par" foto="CM1128_Oriol_Bosh.jpg" />
+	<persona id="3" puesto="DGA Normatividad y Cumplimiento" nombre="Hugo  Arturo Contreras Pliego" foto="CM0180_Hugo_Contreras.jpg" />
+	<persona id="4" puesto="Dir. Jurídico y Normatividad" nombre="Clementina Ramírez de Arellano" foto="CM0105_Clementina_Arellano.jpg" />
+	<persona id="5" puesto="SD Cumplimiento" nombre="Alexis Jaramillo González" foto="CM0584_Alexis_Jaramillo.jpg" />
+	<persona id="6" puesto="Dir. Control Interno" nombre="Jaime Arriaga Manzano" foto="CM1156_Jaime_Arriaga.jpg" />
+	<persona id="7" puesto="SD. Seguridad de la Información" nombre="Oscar Cortez Muñoz" foto="CM0510_Oscar_Cortez.jpg" />
+    <persona id="8" puesto="Dir. Auditoría Interna" nombre="Aida Andrade Ancira" foto="CM0236_Aida_Andrade.jpg" />
+	<persona id="9" puesto="Dir. Vigilancia Mercados" nombre="Pedro Diez Sánchez" foto="CM0111_Pedro_Diez.jpg" />
+	<persona id="10" puesto="Dir. Administración y Finanzas" nombre="Ramón Güemez Sarre" foto="CM0676_Ramon_Guemez.jpg" />
+	<persona id="11" puesto="Dir. Comunicación Corporativa y Promoción Cultural" nombre="Roberto Gavaldon Arbide" foto="CM0801_Roberto_GAvaldon.jpg" />
+	<persona id="12" puesto="Dir. Factor Humano y Escuela Bolsa Mexicana" nombre="Rosa Laura Crespo Casas" foto="CM1525_Rosa_Crespo.jpg" />
+	<persona id="13" puesto="Dir. Serv. Trans. Capitales" nombre="Alfredo Ricardo Guillen Lara" foto="CM0527_Ricardo_Guillen.jpg" />
+	<persona id="14" puesto="Dir. Serv. Trans. Derivados" nombre="José Miguel de Dios Gómez" foto="CM0123_Jose_Miguel_de_Dios.jpg" />
+	<persona id="15" puesto="Contralor Normativo Mexder " nombre="Iñigo Ruiz Bada" foto="CM0100_Inigo_Ruiz.jpg" />
+	<persona id="16" puesto="SD. Administración MexDer" nombre="Erika Delgadillo Aburto" foto="CM0329_Erika_Delgadillo.jpg" />
+	<persona id="17" puesto="Dir. Sif Icap Servicios" nombre="Gabriel Rodríguez Bas" foto="Gabriel_Rodriguez_Bas.jpg" />
+	<persona id="18" puesto="DGA Emisoras e Información / Valmer" nombre="José Manuel Allende Zubiri" foto="CM0153_Jose_M_Allende.jpg" />
+	<persona id="19" puesto="DGA Depósito, Liquidación y  Compensación" nombre="Roberto González Barrera" foto="CM1122_Roberto_Gonzalez.jpg" />
+	<persona id="20" puesto="DGA Cámaras" nombre="María Catalina Inés Clavé Almeida" foto="CM0281_Maria_Catalina_Ines.jpg" />
+	<persona id="21" puesto="DGA Tecnología" nombre="Luis Andrés Rodríguez Mena" foto="CM1461_Luis_Andres_Mena.jpg" />
+	<persona id="22" puesto="SD. Jurídico" nombre="Karen González Rodríguez" foto="Karen_Gonzalez_Rodriguez.jpg" />
+	<persona id="23" puesto="SD. Bonos Gub" nombre="Arturo Germán Bordes" foto="SP0003_Arturo_Bordes.jpg" />
+	<persona id="24" puesto="SD. Set TD y Bonos Corporativos" nombre="Arturo Miranda Galindo" foto="SP0061_Arturo_Miranda.jpg" />
+	<persona id="25" puesto="SD. Tecnología Inf." nombre="Javier Gordon Arce" foto="Javier_Gordon_Arce.png" />
+	<persona id="26" puesto="Dir. Promoción  y Emisoras" nombre="Juan Manuel Olivo Tirado" foto="CM1070_Juan_Manuel_Olivo.jpg" />
+	<persona id="27" puesto="Dir. Información y Estadística" nombre="Rubén Alfonso Perera Santos" foto="CM0110_Ruben_Perera.jpg" />
+	<persona id="28" puesto="SD Operación y Valuación" nombre="Francisco González Fernández" foto="CM1412_Francisco_Gonzalez.jpg" />
+	<persona id="29" puesto="SD Riesgos " nombre="Guadalupe Elizabeth García López" foto="CM0499_Guadalupe_Garcia.jpg" />
+	<persona id="30" puesto="SD Comercial" nombre="María del Socorro Iliana Ayala Najar" foto="CM0303_Ileana_Ayala.jpg" />
+	<persona id="31" puesto="Sd. Operación y Liquidación Internacional" nombre="Zazil Miranda González" foto="CM0356_Zazil_Miranda.jpg" />
+	<persona id="32" puesto="Dir. Custodia y Administración Valores" nombre="Edgardo Julio Obregón Tirado" foto="CM0260_Julio_Obregon.jpg" />
+	<persona id="33" puesto="Dir. Comercial y Producto" nombre="Alejandro Garza Cabañas" foto="CM1141_Alejandro_Garza.jpg" />
+	<persona id="34" puesto="SD Compensación y Liquidación CCV" nombre="Oscar López Nava" foto="CM0028_oscar_Lopez_Nava.jpg" />
+	<persona id="35" puesto="Dir. Operación Asigna" nombre="Miguel Ángel Torres Canseco" foto="CM0308_Miguel_Angel_Torres.jpg" />
+	<persona id="36" puesto="Dir. Riesgos Cámaras" nombre="Jiyouji Ueda Ordoñez" foto="CM1183_Jiyouji_Ueda.jpg" />
+	<persona id="37" puesto="Contralor Normativo Asigna" nombre="Airam Paloma Torres Martínez" foto="CM0459_Paloma_Torres.jpg" />
+	<persona id="38" puesto="Gr. Calidad y Procesos TI" nombre="Arturo Cerón López" foto="CM1220_Arturo_Ceron.jpg" />
+	<persona id="39" puesto="Dir. Sistemas de Información y ValMer" nombre="Salvador Saavedra González" foto="CM0346_Salvador_Saavedra.jpg" />
+	<persona id="40" puesto="SD Estrategia Corporativa" nombre="Héctor Zamora Corona" foto="bmv_propuesta-22.png" />
+	<persona id="41" puesto="Dir. Infraestructura Tecnológica" nombre="Gerardo Valdés Jerez" foto="CM1369_Gerardo_Valdes.jpg" />
+	<persona id="42" puesto="Dir. Sistemas Post - Trade" nombre="David Solís Pacheco" foto="CM1249_David_Solis.jpg" />
+	<persona id="43" puesto="SD Tecnología BMV" nombre="Juan Manuel Magaña Morales" foto="CM1304_Juan_Manuel_Magana.jpg" />
+	<persona id="44" puesto="Presidente Ejecutivo" nombre="José Méndez Fabre" foto="AM0183_Jose_Fabre.jpg" />
+	<persona id="45" puesto="Director General" nombre="Efrén del Rosal Calzada" foto="AM0007_Efren_del_Rosal.jpg" />
+	<persona id="46" puesto="Dir. Técnica de Comités" nombre="Ernesto Reyes Retana" foto="AM0024_Ernesto_Reyes.jpg" />
+	<persona id="47" puesto="Dir.  Inv. y Comunicación" nombre="José Luis Acosta Chavira" foto="AM0045_Jose_Luis_Chavira.jpg" />
+	<persona id="48" puesto="Dir. Certificación y Sistemas" nombre="Everardo Rodríguez Caro" foto="AM0036_Everardo_Caro.jpg" />
+	<persona id="49" puesto="Dir. Jurídica y Normatividad" nombre="Francisca Rodríguez Padilla" foto="AM0193_Francisca_Padilla.jpg" />
+</personas>

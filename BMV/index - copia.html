@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BMV - ACTIO</title>
+    <link rel="icon" type="image/png" href="templateImages/actiologo.png">
+    <link rel="apple-touch-icon" href="templateImages/actiologo.png">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="SCORM_API_wrapper.js"></script>
+    <script src="js/utils.js"></script>
+    <style>
+        .imgBtn {
+            cursor: pointer;
+            margin: auto;
+            z-index: -1;
+        }
+
+        .imgIn {
+            display: inline-block;
+            margin: auto;
+        }
+
+        .titulo {
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 16pt;
+            color: #FFFFFF;
+        }
+
+        .marcador {
+            font-family: Verdana, Arial, Helvetica;
+            font-size: 9pt;
+            color: #FFFFFF;
+        }
+
+        .ligloss {
+            font-family: Helvetica, Verdana, Arial;
+            font-size: 12pt;
+        }
+
+        .ligloss:hover {
+            font-weight: bold;
+        }
+
+        .liglossBold {
+            font-family: Helvetica, Verdana, Arial;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+
+        .def {
+            font-family: Helvetica, Verdana, Arial;
+            font-size: 12pt;
+        }
+
+        body {
+            /* background-color:#333333;*/
+        }
+
+        @font-face {
+            font-family: RobotoLight;
+            src: url('fonts/Roboto-Light.ttf') format("truetype");
+        }
+
+        @font-face {
+            font-family: RobotoRegular;
+            src: url('fonts/Roboto-Regular.ttf') format("truetype");
+        }
+    </style>
+</head>
+
+<body style="overflow: hidden;" onblur="saveSCORM();">
+    <div class="container-fluid">
+        <div class="row" id="rowHeader">
+            <!-- row header-->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height:50px;background-color:rgb(37, 68, 104);margin:auto;">
+                <div class="row" id="divSuperior" style="display:none;">
+                    <!--col-lg-1 col-md-1 col-sm-1 col-xs-1-->
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                        <img id="menuIcon" src="templateImages/menuIcon.png" class="imgBtn" style="z-index: 400;padding:4px" onclick='showMap();' />
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+                        <div id="divTitle" class="text-left" style="color:#FFFFFF;margin-top: 10px;font-weight: bold;"> </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div><img src="templateImages/BMVLogo-sm.png" /> </div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                        <img src="templateImages/helpIcon.png" class="imgBtn" id="imgHelp" style="z-index:400;padding:4px " data-toggle="tooltip" data-placement="bottom" title="Ayuda" onmouseover="$('#imgHelp').tooltip('show');" onclick="showAyuda();" />
+                    </div>
+                </div> <!-- row -->
+                <div class="row">
+                    <div style="position:absolute;z-index:400;width:100%;background-color:transparent;">
+                        <div id="menubar" style="display:none;z-index:400;width:120px;">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="left:-45px;">
+                                <ul style="list-style-type:none;">
+                                    <li><img src="templateImages/map.png" class="img-responsive imgBtn" id="imgmapa" style="margin:4px;" onmouseover="clearTimeout(idTimeout);over(0,this);$('#imgmapa').tooltip('show');" onmouseout="out(0,this);idTimeout=setTimeout('hideMenu()',500);" onclick="showMap();" data-toggle="tooltip" data-placement="right" title="Mapa de Aprendizaje" /></li>
+                                    <li><img src="templateImages/birrete.png" class="img-responsive imgBtn" id="imgbirrete" style="margin:4px;" onmouseover="clearTimeout(idTimeout);over(1,this);$('#imgbirrete').tooltip('show');" onmouseout="out(1,this);idTimeout=setTimeout('hideMenu()',500);" data-toggle="tooltip" data-placement="right" title="Gu&iacute;a Did&aacute;ctica" onclick="showGuia();" /></li>
+                                    <li><a href="assets/guia.pdf" target="_blank"><img src="templateImages/guiarapida.png" class="img-responsive imgBtn" id="imgguia" style="margin:4px;" onmouseover="clearTimeout(idTimeout);over(3,this); $('#imgguia').tooltip('show');" onmouseout="out(3,this);idTimeout=setTimeout('hideMenu()',500);" data-toggle="tooltip" data-placement="right" title="Gu&iacute;a de Referencia" /></a></li>
+                                    <li><img src="templateImages/salir.png" class="img-responsive imgBtn" id="imgsalir" style="margin:4px;" onmouseover="clearTimeout(idTimeout);over(4,this);$('#imgsalir').tooltip('show');" onmouseout="out(4,this);idTimeout=setTimeout('hideMenu()',500);" onclick="exitWindow();" data-toggle="tooltip" data-placement="right" title="Salir" /></li>
+                                </ul>
+                            </div>
+                        </div> <!--  menubar-->
+                    </div>
+                </div><!-- row -->
+            </div> <!-- header -->
+        </div> <!-- row header-->
+        <div class="row text-center" style="background-color: #FFFFFF;overflow:hidden;overflow-y: hidden;overflow-x: hidden;background-image: url(templateImages/loading.gif);background-position: center;background-repeat: no-repeat;">
+            <div id="divContent" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height:340px;overflow:hidden;overflow-y: hidden;overflow-x: hidden;background-color:#F9F9F9;background-image: url(templateImages/loading.gif);background-position: center;background-repeat: no-repeat;z-index:1;">
+                <!-- br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/-->
+                <!-- img src="templateImages/loading.gif" class="img-responsive center-block" style=" vertical-align: middle;max-height: 500px;" -->
+                <!-- iframe id="iContent" name="iContent" src="" frameborder="0" scrolling="no" height="500" width="100%"> </iframe-->
+            </div>
+            <div id="divBack" style="display:none;background-image: url(templateImages/loading.gif);background-position: center;background-repeat: no-repeat;z-index:14000;">
+            </div> <!-- divBack -->
+        </div> <!-- row content-->
+        <div class="row" id="divInferior" style="display:none;height:40px;">
+            <!-- row controls-->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color: rgb(37, 68, 104);height: inherit;">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="height:inherit;">
+                    <div class="titulo" id="titulo" style="height: 100%;vertical-align: middle;display:inline-block;"></div>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-center" style="height:inherit;">
+                    <table style="height:12px;" width="50%" height="12px" border="0" align="center">
+                        <tr>
+                            <canvas id="canvasProgress" width="400" height="7px" class="img-responsive" style="display:inline;"></canvas>
+                            <div id="marcador" class="marcador text-center" style="font-size: 8pt;color:#4AAA42;">
+                        </tr>
+                        <tr>
+                            <td colspan="12">
+                </div>
+                </td>
+                </tr>
+                </table>
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-right" style="height:inherit;vertical-align: middle;padding:0px;">
+                <img src="templateImages/prevIcon-sm_out.png" class="" onmouseover="changeOver(this);" onmouseout="changeOut(this);" onClick="prevSlide();" style="cursor:pointer;height:40px;padding-top:0px;padding-bottom:0px;padding-left: 0px;padding-right: 0px;margin-right: 0px;" />
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-left" style="height:inherit;vertical-align: middle;padding:0px;">
+                <img src="templateImages/nextIcon-sm_out.png" class="" onmouseover="changeOver(this);" onmouseout="changeOut(this);" onClick="nextSlide();" style="cursor:pointer;height:40px;padding:0px;padding-top:0px;padding-bottom:0px;padding-right: 0px;margin-left: 0px;" />
+            </div>
+        </div> <!-- footer -->
+    </div> <!-- row controls-->
+    </div> <!-- container-fluid -->
+
+    <div id="divSim" style="position: absolute;top:0;left:0; width:1900px; height:1768px;background-color:rgba(52,52,52,1);display:none;">
+        <img src="templateImages/loading.gif" class="img-responsive center-block" style=" vertical-align: middle;max-height: 500px;">
+    </div>
+
+    <div id="divGlossary" style="position: absolute;top:0;left:0; width:1900px; height:1768px;background-color:rgba(52,52,52,1);display:none;">
+        <div class="row" style="border-bottom: rgb(0,186,208) thin solid;">
+            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8" style="padding-left:40px; padding-bottom:5px;">
+                <img src="templateImages/glosariotext-sm.png" style="margin-top:15px;" />
+                <div style="display:inline;color:rgb(255,255,255);"></div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" onclick="closeGlossary();">
+                <img src="templateImages/cerrar-xs.png" class="img-responsive" style="cursor:pointer; margin-top:15px" onclick="closeGlossary();" />
+            </div>
+        </div>
+        <!--row -->
+        <div class="row">
+            <div id="divterm" class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-2 col-sm-offset-2 col-sm-2 col-xs-offset-2 col-xs-2" style="border-right: thin solid rgb(0,186,208);color:rgb(255,255,255);padding-top: 10px;">
+            </div>
+            <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div id="divdef" class="def" style="color:rgb(255,255,255);padding-top: 10px;">
+
+                </div>
+            </div>
+        </div>
+    </div> <!-- row divGlossary-->
+    <div id="divGuia" style="position: absolute;top:0;left:0; width:1200px; height:1768px;background-color:rgba(52,52,52,1);display:none;">
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sd-offset-1 col-sm-7" style="padding-left:40px; padding-bottom:5px;" id="subDivGuia">
+                <object type="text/html" data="content/cur_w10_didactica/cur_w10_didactica.html" style="position:absolute;top:0;left:0;width:100%;height:580px;overflow:hidden;overflow-y:hidden;overflow-x:hidden;padding:0px;overflow:hidden;margin:0px;" id="objectGuia"></object>
+            </div>
+        </div>
+        <!--row -->
+    </div> <!-- divGuia -->
+
+    <div id="divAyuda" style="position: absolute;top:0;left:0; width:1200px; height:1768px;background-color:rgba(52,52,52,1);display:none;">
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sd-offset-1 col-sm-7" style="padding-left:40px; padding-bottom:5px;" id="subDivAyuda">
+                <object type="text/html" data="content/bmv_ayuda.html" style="position:absolute;top:0;left:0;width:100%;height:580px;overflow:hidden;overflow-y:hidden;overflow-x:hidden;padding:0px;overflow:hidden;margin:0px;" id="objectAyuda"></object>
+            </div>
+        </div>
+        <!--row -->
+    </div> <!-- divAyuda -->
+
+    <!-- background-color:rgba(52,52,52,1); -->
+    <div class="container-fluid">
+        <div id="divMapa" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:none;">
+            <div class="row" id="divMapaContent">
+                <!-- Content -->
+            </div>
+            <!--row Content -->
+        </div> <!-- divMapa -->
+    </div> <!-- container-fluid -->
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="warningModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content text-center" style="background-color: rgba(0,0,0,0);box-shadow: none;border:none;">
+                <img src="templateImages/atencion_02.png" /> <br />
+                <br />
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div> <!-- modal-->
+    <script src="js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="jspdf.debug.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        var pantallaDesbloqueada = false;
+        var idTimeout;
+        var current = 0;
+        var load = false;
+        var maxHeight = 768;
+        var height = 580;
+        var width = 1000;
+
+        var divSuperiorHeight = 27;
+        var divInferiorHeight = 37;
+
+        var suspendData;
+        var lmsData;
+        var graphMain;
+        var graphModules;
+        var contentModules;
+        var califPass = 80;
+
+        var romanNum = new Array();
+        romanNum[0] = "I ";
+        romanNum[1] = "II ";
+        romanNum[2] = "III ";
+        romanNum[3] = "IV ";
+        romanNum[4] = "V ";
+        romanNum[5] = "VI ";
+
+
+        function registra(dato) {
+            console.log(dato);
+        } //registra
+
+        var scorm = pipwerks.SCORM;
+        var learnername = "none";
+        scorm.version = "1.2";
+        var lmsConnected = false;
+        var scorm = pipwerks.SCORM;
+        registra("Inicio...");
+        registra("SCORM.version: " + scorm.version);
+        var learnername = "none";
+        var lmsConnected = false;
+        try {
+            lmsConnected = scorm.connection.initialize();
+            if (scorm.version == "1.2") {
+                learnername = scorm.get("cmi.core.student_name");
+            } else if (scorm.version == "2004") {
+                learnername = scorm.get("cmi.learner_name");
+            } // if scorm.version
+        } catch (e) {
+            registra("No fue posible se inicializar scorm" + e.message);
+        } //catch
+        registra("initialize: " + lmsConnected);
+        registra("learnerName: " + learnername);
+
+        function closeCourseWindow() {
+            this.parent.window.close();
+        } //closeCourseWindow
+
+        var unloaded = false;
+
+        function unloadHandler() {
+            if (!unloaded) {
+
+                suspendData = JSON.stringify(suspendObject);
+
+                console.log('el suspend data es', suspendData);
+                suspendData = suspendData.replace(/"/g, '|');
+                console.log('el nuevo suspend data es', suspendData);
+
+                scorm.set("cmi.suspend_data", suspendData);
+
+                scorm.save(); //save all data that has already been sent
+                // pipwerks.SCORM.quit(); //close the SCORM API connection properly
+                unloaded = true;
+            }
+        } //unloadHandler
+        window.onbeforeunload = unloadHandler;
+        window.onunload = unloadHandler;
+
+        /*---------------------------------------------------------------------*/
+        var userScore = 0;
+        var numPre = 0;
+        var puntos = 0;
+        var puntosTotal = 0;
+
+        //[total] : Número total de preguntas de la evaluación final. 
+        function addPoint(total) {
+            puntos++;
+            puntosTotal = total;
+            userScore = Math.floor((puntos * 100) / puntosTotal);
+            registra("addPoint: userScore: " + userScore);
+            suspendObject.aprobo = (userScore >= 80);
+            registra("addPoint aprobo: " + (userScore >= 80));
+            suspendObject.caliFinal[suspendObject.intentos - 1] = userScore;
+            setScore();
+        } //addPoint
+
+        // [module_]: Número del módulo de la práctica (se utiliza module_ por que la palabra module es reservada)
+        // [practice]: Número de la práctica dentro del módulo
+        // [point] :  Número del punto dentro de la práctica
+        // [total] : Total de preguntas de la práctica
+        function addPointPr(module_, practice, point, total) {
+            var modulePractice = -1;
+            registra("addPointPr - module: " + module_ + " -practice: " + practice + " -point: " + point + " -total: " + total);
+            for (var i = 0; i < abilityItemsArray.length; i++) {
+                if ((abilityItemsArray[i].module == module_) && (abilityItemsArray[i].number == practice)) {
+                    registra("addPointPr - module: " + module_ + " -practice: " + practice + " found ... " + i);
+                    modulePractice = i; // aquí se guarda el índice para saber el elemento fuera del ciclo
+                    if (abilityDataArray[i].length == 0) { // Si es el primer punto registrado se genera todo el arreglo con ceros para poder sacar el total
+                        registra("addPointPr - generate abilityDataArray - " + total);
+                        abilityDataArray[i] = new Array(total);
+                        for (var j = 0; j < total; j++) {
+                            abilityDataArray[i][j] = 0;
+                        } // for j < total
+                    } //  if (abilityDataArray[i].length==0)
+                    if (point <= abilityDataArray[i].length) {
+                        registra("addPointPr - " + point + " - 1 ....");
+                        // for para limpiar el arreglo desde el punto en adelante.
+                        for (var j = (point - 1); j < abilityDataArray[i].length; j++) {
+                            abilityDataArray[i][j] = 0;
+                        } // j 
+                        abilityDataArray[i][point - 1] = 1;
+                    } // if (point < abilityDataArray[i].length) {
+                    // dentro del arreglo abilityDataArray[i][point] = 1 
+                    // donde i es el módulo y práctica 
+                    // y point es el punto obtenido
+                    break;
+                } // if 
+            } // for i abilityItemsArray
+            var totI = 0;
+            for (var j = 0; j < abilityDataArray[modulePractice].length; j++) {
+                registra("abilityDataArray[" + modulePractice + "][" + j + "]" + abilityDataArray[modulePractice][j]);
+                totI += abilityDataArray[modulePractice][j];
+            } // for j
+            registra("tot I " + i + " : " + totI);
+            var tot = Math.floor((totI * 100) / total);
+            registra("addPointPr Porcentaje " + tot);
+            suspendObject.caliAbility[modulePractice] = tot;
+            setScore();
+        } //addPointPr
+
+        //[module_]: Número del módulo de la evaluación
+        //[total] : Total de preguntas de la evaluación
+        function addPointEva(module_, total) {
+            registra("addPointEva module: " + module_ + " -total: " + total);
+            evaluaArray[(module_ - 1)]++;
+            for (var i = 0; i < evaluaArray.length; i++) {
+                registra("addPointEva evaluaArray[" + i + "] : " + evaluaArray[i]);
+            } // for i
+            totI = evaluaArray[(module_ - 1)];
+            var tot = Math.floor((totI * 100) / total);
+            registra("addPointEva Porcentaje " + tot);
+            suspendObject.caliEvalua[(module_ - 1)] = tot;
+            setScore();
+        } //addPointEva
+
+        function resetScoreHTML(module_, practice) {
+            registra("module_: " + module_ + " practice " + practice);
+            if ((module_ == 0) && (practice == 0)) {
+                puntos = 0;
+                registra("resetScoreHTML index.html " + puntos);
+            } // if((module_==0) && (practice==0)) {
+
+            if ((module_ > 0) && (practice == 0)) {
+                evaluaArray[(module_ - 1)] = 0;
+                suspendObject.caliEvalua[(module_ - 1)] = 0;
+            } //  module_>0
+            if ((module_ > 0) && (practice > 0)) {
+                registra("resetScoreHTML module " + module_ + " practice " + practice);
+                for (var i = 0; i < abilityItemsArray.length; i++) {
+                    if ((abilityItemsArray[i].module == module_) && (abilityItemsArray[i].number == practice)) {
+                        registra("addPointPr - module: " + module_ + " -practice: " + practice + " found ... " + i);
+                        modulePractice = i; // aquí se guarda el índice para saber el elemento fuera del ciclo
+                        abilityDataArray[i] = new Array();
+                        suspendObject.caliAbility[modulePractice] = 0;
+                        break;
+                    } // if 
+                } // for i abilityItemsArray
+            } //if ((module_>0) && (practice>0) )
+        } //resetScoreHTML
+
+        function setScore() {
+            if (lmsConnected) { // Si hay scorm lmsConnected 
+                if (scorm.version == "1.2") {
+                    scorm.set("cmi.core.score.raw", userScore);
+                } else if (scorm.version == "2004") {
+                    scorm.set("cmi.score", userScore);
+                } //2004
+                suspendData = JSON.stringify(suspendObject);
+
+                console.log('el suspend data es', suspendData);
+                suspendData = suspendData.replace(/"/g, '|');
+                console.log('el nuevo suspend data es', suspendData);
+
+                scorm.set("cmi.suspend_data", suspendData);
+                saveSCORM();
+            } // lmsConnected
+        } //setScore
+
+        function saveSCORM() { //--jc--onUnload document event
+            if (lmsConnected) { // Si hay scorm lmsConnected 
+                suspendData = JSON.stringify(suspendObject);
+
+                console.log('el suspend data es', suspendData);
+                suspendData = suspendData.replace(/"/g, '|');
+                console.log('el nuevo suspend data es', suspendData);
+
+                scorm.set("cmi.suspend_data", suspendData);
+                scorm.save(); //save all data that has already been sent 
+            } // if lmsConnected
+        } // saveSCORM
+
+        function completaSCORM() {
+            if (lmsConnected) {
+                scorm.set("cmi.core.lesson_status", "completed");
+                scorm.save();
+            }
+        }
+
+        function salir(site) {
+            if (site != 'null') {
+                window.close();
+            } else {
+                //alert("Opción disponible sólo con LMS"); 
+            }
+        } //salir
+
+        function changeOver(obj) {
+            obj.src = obj.src.replace(/out/, "over");
+            $(obj).fadeIn(400);
+        } //changeOver
+
+        function changeOut(obj) {
+            obj.src = obj.src.replace(/over/, "out");
+            $(obj).fadeIn(400);
+        } //changeOut
+
+        function showMenu() {
+            //registra("showMenu");
+            //muteSlide();
+            //changeTab(2);
+            //changeTab(1);
+
+            $("#menubar").fadeIn(300);
+        } //showMenu
+
+        function hideMenu() {
+            //registra("hideMenu");
+            //unmuteSlide();
+            $("#menuIcon").fadeOut(150, function() {
+                document.getElementById("menuIcon").src = "templateImages/menuIcon.png";
+                document.getElementById("menuIcon").style.marginLeft = "0px";
+                $("#menuIcon").fadeIn(150);
+            });
+
+            $("#menubar").fadeOut(300);
+        } //hideMenu
+
+        function over(num, obj) {
+            imagesArray = new Array();
+            imagesArray[0] = "templateImages/mapover.png";
+            imagesArray[1] = "templateImages/birreteover.png";
+            imagesArray[2] = "templateImages/glosarioover.png";
+            imagesArray[3] = "templateImages/guiarapidaover.png";
+            imagesArray[4] = "templateImages/salirover.png";
+            obj.src = imagesArray[num];
+        } //over
+
+        function out(num, obj) {
+            imagesArray = new Array();
+            imagesArray[0] = "templateImages/map.png";
+            imagesArray[1] = "templateImages/birrete.png";
+            imagesArray[2] = "templateImages/glosario.png";
+            imagesArray[3] = "templateImages/guiarapida.png";
+            imagesArray[4] = "templateImages/salir.png";
+            obj.src = imagesArray[num];
+        } //out
+
+        function exitWindow() {
+            if (confirm(unescape("%BF") + "Realmente deseas salir de este curso?")) {
+                parent.window.close();
+            } //confirm
+        } //exitWindow
+
+        function prevSlide() {
+            //registra("prevSlide - current " +current);
+            if (current > 1) {
+                current--;
+                lock = false;
+                loadSlide();
+                //setMarcador();
+            } //if current>1
+        } //prevSlide
+
+        function nextSlide() {
+            if (current < (getTotalTopics())) {
+                registra("nextSlide current: " + current);
+                if (lock) {
+                    registra("lock : " + lock);
+                    registra("if : " + (lock) && (!topicsArray[current - 1].visited));
+                } //lock
+
+                if ((lock) && (!isVisited(current + 1))) {
+                    // 	//alert("No se ha revisado todo el contenido de la pantalla.\nAsegúrate de revisar todo el contenido para poder continuar.");
+                    // if((current==18)&& (! suspendObject.aprobo))  {
+                    // 	registra("*** 1 current == 18 ! aprobo ***");
+                    // 	$('#warningExamenModal').modal('show');
+                    // 	return false;
+                    // } // current =18 ! aprobo
+
+                    // if ( (current==1) || (current==19)  ) {
+                    // 		$('#warningVideoModal').modal('show');
+                    // 		return false;
+                    // 	}
+                    // if ((current==18) && (! suspendObject.aprobo)) {
+                    // 	return false;
+                    // }//if ((current==18) && (! suspendObject.aprobo)) 
+
+                    //  if (current !=18) {
+                    // $('#warningModal').modal('show');
+                    // return false;
+                    // }// 
+                } //lock
+
+                if (!isVisited(current + 1)) {
+                    // if ((current==18) && (! suspendObject.aprobo)) {
+                    // 		registra("*** 2 current == 18 ! aprobo ***");
+                    // 		$('#warningExamenModal').modal('show');
+
+                    // 		return false;
+                    // 	}//if ((current==18) && (! suspendObject.aprobo)) 
+                } // ! isVisited(current+1)
+
+                var flag = true;
+                if (lmsConnected) { // solo si se está conectado al LMS
+
+                    var tmpCurrent;
+                    if (scorm.version == "1.2") {
+                        tmpCurrent = parseInt(scorm.get("cmi.core.lesson_location"), 10);
+                    } else if (scorm.version == "2004") {
+                        tmpCurrent = parseInt(scorm.get("cmi.location"), 10);
+                    } //else 2004 // if scorm.version 1.2 
+
+                    console.log('tmpCurrent', tmpCurrent);
+
+                    if (isNaN(tmpCurrent)) {
+                        // Es la primera vez que el curso se abre.
+                        firstTime = true;
+                        current = 1;
+                    } else {
+                        current = tmpCurrent;
+                    }
+                    console.log('current', current);
+
+
+                    console.log('suspendObject', suspendObject);
+                    var len = suspendObject.M.length;
+                    var tmpCont = 0;
+                    var i = 0;
+                    var j = 0;
+                    for (i = 0; i < len; i++) {
+                        for (j = 0; j < suspendObject.M[i].t.length; j++) {
+                            if (tmpCont == current) {
+                                break; // break for j
+                            } // if tmpCont == current
+                            console.log('suspendObject.M[i].t[j]._b', suspendObject.M[i].t[j]._b);
+                            if (!(suspendObject.M[i].t[j]._b)) {
+                                registra(" +++ NOT VISITED +++ " + tmpCont);
+                                flag = false;
+                            } else {
+                                registra(tmpCont + " +++++ visited +++++ ");
+                            } // else //if
+                            tmpCont++;
+                        } // for j
+                        if (tmpCont == current) {
+                            break; // break for i 
+                        } // if tmpCont == current
+                    } // for i
+                    registra("flag: " + flag);
+                    registra("j " + j);
+                    registra("i " + i);
+                    registra("suspendObject.M[" + i + "].t.length " + (suspendObject.M[i].t.length));
+                    if (!flag) {
+                        if (j == suspendObject.M[i].t.length) {
+                            $("#warningModal").modal("show");
+                            return false;
+                        } // if
+                    } // si no se han visitado todas las pantalla del módulo actual
+                } else { // si no hay LMS se deshabilitan los candados
+                    flag = true;
+                } //else // if (lmsConnected)
+
+
+                if (!flag) {
+                    $("#warningModal").modal('show')
+                    return false;
+                } else {
+
+                    current++;
+                    // lock = false;
+                    // setMarcador();
+                    loadSlide(flag);
+                }
+            } //if current<getTotalTopics
+        } //nextSlide
+
+        function getVisitedObjectiveModule(num) {
+            var tmpModule = new Array();
+            if (lmsConnected) { // solo si se está conectado al LMS
+                var len = suspendObject.M.length;
+                var j = 0;
+                if (num < len) {
+                    for (j = 0; j < suspendObject.M[num].t.length; j++) {
+                        if (!(suspendObject.M[num].t[j]._b)) {
+                            tmpModule.push(false);
+                        } else {
+                            tmpModule.push(true);
+                        } // else //if
+                    } // for j
+                } // if num < len
+            } // if (lmsConnected)
+            console.log("getVisitedObjectiveModule length: " + tmpModule.length);
+            return tmpModule;
+        } //getVisitedObjectiveModule
+
+
+        function isVisited(num) {
+            var flag = false;
+            console.log("isVisited ...", num);
+            registra("isVisited ...");
+            if (lmsConnected) { // solo si se está conectado al LMS
+                var len = suspendObject.M.length;
+                tmpCont = 0;
+                for (var i = 0; i < len; i++) {
+                    for (var j = 0; j < suspendObject.M[i].t.length; j++) {
+                        tmpCont++;
+                        if ((suspendObject.M[i].t[j]._b) && (tmpCont == num)) {
+                            registra("flag true j: " + j);
+                            registra(" +++ VISITED +++");
+                            flag = true;
+                            return flag;
+                        } else {
+                            //registra("flag false: " + j);
+                        } // else //if
+                    } // for j
+                } // for i
+            } else { // si no hay LMS se deshabilitan los candados
+                flag = true;
+            } //else // if (lmsConnected)
+            registra(" *** NOT VISITED ***");
+            return flag;
+        } // isVisited
+
+        function goTo(num) {
+            // num // validar
+            closeSim();
+            current = num;
+            loadSlide();
+        } // goTo
+
+        function loadSlide(next) {
+
+
+            if (next == undefined || next == null || next == "") {
+                next = false;
+            }
+
+            console.log('loadSlide con next', next);
+
+            // lock = false;
+
+
+            // current = 0;
+            // lock = false;
+            if (lmsConnected) { // solo si se está conectado al LMS
+
+                var suspendObject2 = suspendObject;
+                var tmpSuspend2 = scorm.get("cmi.suspend_data"); //
+
+                if ((tmpSuspend2.length == 0) || (tmpSuspend2 == undefined) || (tmpSuspend2 == "undefined")) {
+                    console.log('no hay tmpSuspend');
+                    lock = true;
+                } else {
+                    console.log('get el suspend data es', tmpSuspend2);
+                    tmpSuspend2 = tmpSuspend2.replace(/\u007C/g, '"');
+                    console.log('get el nuevo suspendData es', tmpSuspend2);
+
+                    suspendObject2 = JSON.parse(tmpSuspend2);
+
+                    var len = suspendObject2.M.length;
+                    var tmpCont = 0;
+                    var j = 0;
+                    for (i = 0; i < len; i++) {
+                        for (j = 0; j < suspendObject2.M[i].t.length; j++) {
+                            if (tmpCont == (current)) {
+                                current = tmpCont;
+                                break;
+                            }
+
+                            // if (next && j > 0) {
+                            //     lock = suspendObject2.M[i].t[(j - 1)]._b;
+                            // } else {
+                            lock = suspendObject2.M[i].t[j]._b;
+                            // }
+                            if (i == 0 && j == 0) {
+                                lock = true;
+                                // flag = true;
+                            }
+                            console.log('current', current, 'lock', lock);
+
+                            tmpCont++;
+                        }
+                        if (tmpCont == current) {
+                            break;
+                        } // if tmpCont == current
+                        // current += 1;
+
+                    }
+
+                }
+
+                if (isNaN(current)) {
+                    current = 0;
+                }
+
+
+
+                console.log('current', current);
+
+            }
+
+            console.log('loadSlide', current, lock, next);
+
+
+
+
+            if (lmsConnected) {
+
+                console.log("lock", lock, "pantallaDesbloqueada", pantallaDesbloqueada);
+                if (!lock && !pantallaDesbloqueada) {
+                    $("#warningModal").modal('show');
+                    current--;
+                    // return false;
+                }
+
+            }
+
+            // si está el mapa abierto
+            // var currentMap = 1;
+            // if (conMapa) {
+            //     currentMap = (current + 1);
+            // } else {
+            //     currentMap = current;
+            // }
+
+            console.log('audio1', audio1);
+            if ((audio1 != null) && (audio1 != undefined)) {
+                audio1.pause();
+                audio1 = null;
+            } // audio!=null
+
+            console.log('hdocument', hdocument);
+            if ((hdocument != null) && (hdocument != undefined)) {
+                hdocument.pauseTimelineNamed('kTimelineDefaultIdentifier');
+                hdocument = null;
+            } // hdocument != null undefined
+
+            setMarcador();
+            var loading = "";
+            var tmpLength = parseInt(topicsArray[current - 1].bookmark.split(" / ")[1].toLowerCase(), 10);
+            console.log('tmpLength', tmpLength);
+            var tmpCurrent = topicsArray[current - 1].bookmark.split(" / ")[0].toLowerCase()
+            console.log('tmpCurrent', tmpCurrent);
+            mainProgress((tmpCurrent * 100) / tmpLength);
+            $("#divTitle").html(topicsArray[current - 1].fullName);
+            //var loading='<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><img src="templateImages/loading.gif" class="img-responsive center-block" style=" vertical-align: middle;max-height: 500px;">';
+            //document.getElementById("divContent").innerHTML = loading;
+            //registra("loadSlide " + current + "-" + topicsArray[current-1].file);
+
+            // document.getElementById("tmpLoad").innerHTML='<object type="text/html" onload="registra(\'onload\');loadAfterSlide();" data="' + topicsArray[current-1].file+ '" style="float:left;width:100%;height:630px;"></object>';
+
+            //document.getElementById('iContent').src=topicsArray[current-1].file;
+            $("#rowHeader").show();
+            // closeMap();
+            $("#divMapa").hide();
+            // closeMap();
+            conMapa = false;
+
+            registra("divBack - with loading ... ");
+            document.getElementById("divBack").style.display = "block";
+
+            //document.getElementById("divContent").style.display="none";
+            document.getElementById("divContent").style.overflow = "hidden";
+            $("#divInferior").hide();
+
+            // document.getElementById("divContent").innerHTML='<object type="text/html" data="' + topicsArray[current-1].file+ '" style="position:absolute;top:0;left:0;width:100%;height:'+height+'px;overflow:hidden;overflow-y:hidden;overflow-x:hidden;padding:0px;margin:0px;" id="objectContent"></object>';
+            document.getElementById("divContent").innerHTML = '<object type="text/html" data="' + topicsArray[current - 1].file + '" style="position:absolute;top:0;left:0;width:100%;height:' + height + 'px;overflow:hidden;overflow-y:hidden;overflow-x:hidden;padding:0px;margin:0px;" id="objectContent"></object>';
+            //document.getElementById("objectContent").data=topicsArray[current-1].file;
+            registra("navigator.navigator " + navigator.userAgent);
+            if (navigator.userAgent.toLowerCase().indexOf("chrome") != -1) {
+                document.getElementById("divBack").style.display = "none";
+                document.getElementById("divContent").style.display = "block";
+                document.getElementById("divSuperior").style.display = "block";
+                document.getElementById("divInferior").style.display = "block";
+            }
+            document.getElementById("objectContent").addEventListener("load", loadedDocument, false);
+            if ((navigator.platform.toLowerCase().indexOf("ipad") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("ipod") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("iphone") == -1)) {
+                document.getElementById("divContent").style.display = "none";
+            } // Not iPad
+
+
+            //document.getElementById("divSuperior").style.display="none";
+            //document.getElementById("divInferior").style.display="none";
+
+
+            //document.getElementById("objectContent").addEventListener("loadeddata", loadedDataDoc, false);
+
+            //registra("First getElementsByTagName length: " + document.getElementById("objectContent").getElementsByTagName("body").length);
+            registra("First setTimeout checkContentDocument...");
+            //setTimeout("checkContentDocument()", 500);
+
+            // $('#objectContent1')[0].addEventListener('load', function() {
+            // 				registra("[0].addEventListener load ");    
+            // }, true);
+
+
+            //document.getElementById("objectContent").addEventListener("DOMContentLoaded", loadedDataDoc, false);
+            //document.getElementById("objectContent").addEventListener("readystatechange", loadedDataDoc, false);
+            // registra("archive: " + document.getElementById("objectContent").archive);
+            // registra("contentDocument:" + document.getElementById("objectContent").contentDocument);
+            // registra("ChildNodes: " + document.getElementById("objectContent").childNodes.length);
+            // tmpDoc = document.getElementById("objectContent").contentDocument;
+            // if (tmpDoc != null){
+            // 	tmpDoc.addEventListener("load", loadedDataDoc, false);
+            // }// if 
+            //document.getElementById("objectContent").addEventListener("loadeddata", loadedData, false);
+
+            // $.ajax({
+            //       			dataType : "html",
+            //       			async : false,
+            //       			url : './content/cur_w10_portada/cur_w10_portada.html',
+            //       			success : function(results) {
+            //           		document.getElementById("divContent").innerHTML=results;
+            //       			}
+            //   			});
+
+            //$("#divContent").ready(function () {
+            //$(document).ready(function () {
+            //$("#divContent").load(function(){
+            registra("file: " + topicsArray[current - 1].file);
+            registra("innerHTML: " + document.getElementById("divContent").innerHTML);
+            //				 $("#divContent").load(topicsArray[current-1].file);
+            //topicsArray[current-1].file
+            // 	 $("#divContent").ready(function(){					
+            // 	 	registra("load objectContent");
+            // 	 document.getElementById("divContent").style.display="block";
+            // 	 document.getElementById("divBack").style.display="none";
+
+            // });
+
+            pantallaDesbloqueada = true;
+            resetScoreHTML(); // resetea los scores de las prácticas y exámenes.
+            //$("#divTitle").html(topicsArray[current-1].fullName);
+            load = true;
+            if (audio1 != null) {
+                audio1.pause();
+            } // audio!=null
+            resetScoreHTML();
+        } //loadSlide
+
+        function loadSpecifiedSlide(fileName) {
+            setMarcador();
+            //var loading="";
+            //var tmpLength=parseInt(topicsArray[current-1].bookmark.split(" de ")[1].toLowerCase(), 10);
+            //var tmpCurrent = topicsArray[current-1].bookmark.split(" de ")[0].toLowerCase()
+            //mainProgress((tmpCurrent*100)/tmpLength);
+            ///$("#divTitle").html(topicsArray[current-1].fullName);
+            document.getElementById("divBack").style.display = "block";
+            document.getElementById("divContent").style.overflow = "hidden";
+            $("#divInferior").hide();
+            document.getElementById("divContent").innerHTML = '<object type="text/html" data="' + fileName + '" style="position:absolute;top:0;left:0;width:100%;height:' + height + 'px;overflow:hidden;overflow-y:hidden;overflow-x:hidden;padding:0px;margin:0px;" id="objectContent"></object>';
+
+            document.getElementById("objectContent").addEventListener("load", loadedDocument, false);
+
+
+            if ((navigator.platform.toLowerCase().indexOf("ipad") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("ipod") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("iphone") == -1)) {
+                document.getElementById("divContent").style.display = "none";
+            } // Not iPad
+            resetScoreHTML(); // resetea los scores de las prácticas y exámenes.
+            load = true;
+            if (audio1 != null) {
+                audio1.pause();
+            } // audio!=null
+            resetScoreHTML()
+        } //loadSpecifiedSlide(fileName)
+
+        function assessmentA() {
+            loadSpecifiedSlide(assessmentAFile);
+        } // assessmentA
+
+        function assessmentNA() {
+            loadSpecifiedSlide(assessmentNAFile);
+        } // assessmentNA
+
+        function loadAssessment() {
+            current = getTotalTopics();
+            loadSlide();
+        } //loadAssessment
+
+        function loadAssessment1() {
+            setMarcador();
+            var loading = "";
+            $("#divTitle").html(finalAssessment[0].getAttribute("name"));
+            document.getElementById("divBack").style.display = "block";
+            document.getElementById("divContent").style.overflow = "hidden";
+
+            document.getElementById("divContent").innerHTML = '<object type="text/html" data="' + finalAssessment[0].getAttribute("file") + '" style="position:absolute;top:0;left:0;width:100%;height:' + height + 'px;overflow:hidden;overflow-y:hidden;overflow-x:hidden;padding:0px;margin:0px;" id="objectContent"></object>';
+
+            document.getElementById("objectContent").addEventListener("load", loadedDocument, false);
+            if ((navigator.platform.toLowerCase().indexOf("ipad") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("ipod") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("iphone") == -1)) {
+                document.getElementById("divContent").style.display = "none";
+            } // Not iPad
+
+            registra("First getElementsByTagName length: " + document.getElementById("objectContent").getElementsByTagName("body").length);
+            registra("First setTimeout checkContentDocument...");
+
+            registra("file: " + finalAssessment[0].getAttribute("file"));
+            registra("innerHTML: " + document.getElementById("divContent").innerHTML);
+            resetScoreHTML(); // resetea los scores de las prácticas y exámenes.
+
+            load = true;
+            if (audio1 != null) {
+                audio1.pause();
+            } // audio!=null
+        } //loadAssessment1
+
+        function checkContentDocument() {
+            var tmpDoc = document.getElementById("objectContent").contentDocument;
+            registra("getElementsByTagName length: " + document.getElementById("objectContent").childNodes.length);
+
+            if (tmpDoc == null) {
+                registra("setTimeout checkContentDocument");
+                setTimeout("checkContentDocument()", 1000);
+            } else {
+                registra("tmpDoc != null - addEventListener... you Win");
+                document.getElementById("divBack").style.display = "none";
+                //document.getElementById("divContent").style.display="block";
+                document.getElementById("objectContent").addEventListener("load", loadedDocument, false);
+            } //else //if
+
+        } // checkContentDocument
+
+        function loadedData() {
+            registra("loadedData...");
+            document.getElementById("divBack").style.display = "none";
+            //document.getElementById("divContent").style.display="block";
+            registra("contentDocument:" + document.getElementById("objectContent").contentDocument);
+        } // loadedData
+
+        function loadedDataDoc() {
+            registra("loadedDataDoc...");
+            document.getElementById("divBack").style.display = "none";
+            //document.getElementById("divContent").style.display="block";
+        } // loadedDataDoc
+
+        function loadedDocument() {
+            registra("loadedDocument ... you win 2 ");
+            document.getElementById("divBack").style.display = "none";
+            document.getElementById("divContent").style.display = "block";
+            document.getElementById("divSuperior").style.display = "block";
+            document.getElementById("divInferior").style.display = "block";
+
+        } //loadedDocument
+
+        function loadAfterSlide() {
+            // if (load) {
+
+            // document.getElementById("divContent").innerHTML='<object type="text/html" data="' + topicsArray[current-1].file+ '" style="position:absolute;top:0;left:0;width:100%;height:'+height+'px;overflow:hidden;overflow-y:hidden;overflow-x:hidden;padding:0px;overflow:hidden;margin:0px;" id="objectContent"></object>';
+
+            // document.getElementById("divContent").style.overflow="hidden";
+            // load=false;
+            // document.getElementById('iContent').src="about:blank";
+            // resetScoreHTML (); // resetea los scores de las prácticas y exámenes.
+
+            // $("#divTitle").html(topicsArray[current-1].fullName);
+
+            // }//if load
+        } //loadAfterSlide
+
+        function outside() {
+            //alert('outside');
+        } //outside
+
+        function docs(obj) {
+            registra("length: " + obj.length);
+        } //docs
+
+        function showBlack() {
+            hideMenu();
+            document.body.style.background = "#343434";
+            muteSlide();
+            document.getElementById("divSim").style.height = (height + 39) + "px";
+            document.getElementById("divSim").style.width = (screen.availWidth - 35) + "px";
+            document.getElementById("divSim").innerHTML = "";
+            document.getElementById("divSim").style.display = "block";
+            document.getElementById("divContent").style.display = "none";
+            document.getElementById("divSuperior").style.display = "none";
+            document.getElementById("divInferior").style.display = "none";
+
+        } //showBlack
+
+        function showGlossary() {
+            hideMenu();
+            document.body.style.background = "#343434";
+            muteSlide();
+            document.getElementById("divGlossary").style.height = (height + 39) + "px";
+            document.getElementById("divGlossary").style.width = (screen.availWidth - 35) + "px";
+            document.getElementById("divContent").style.display = "none";
+            document.getElementById("divSuperior").style.display = "none";
+            document.getElementById("divInferior").style.display = "none";
+            $("#divGlossary").fadeIn();
+        } //showGlossary
+
+        function closeGlossary() {
+            unmuteSlide();
+            //registra("fadeOut divGlossary*************************************");
+            $("#divGlossary").fadeOut();
+            document.body.style.background = "#FFFFFF";
+            document.getElementById("divContent").style.display = "block";
+            document.getElementById("divSuperior").style.display = "block";
+            document.getElementById("divInferior").style.display = "block";
+
+        } //closeGlossary
+
+        function showGuia() {
+            hideMenu();
+            document.body.style.background = "#343434";
+            muteSlide();
+            //registra("showGuia: " + height);
+            document.getElementById("divGuia").style.height = (height + 39) + "px";
+            document.getElementById("divGuia").style.width = (screen.availWidth - 35) + "px";
+            document.getElementById("divContent").style.display = "none";
+            document.getElementById("divSuperior").style.display = "none";
+            document.getElementById("divInferior").style.display = "none";
+            $("#divGuia").fadeIn();
+        } //showGuia
+
+        function closeGuia() {
+            unmuteSlide();
+            //registra("fadeOut divGuia*************************************");
+            $("#divGuia").fadeOut();
+            document.body.style.background = "#FFFFFF";
+            document.getElementById("divContent").style.display = "block";
+            document.getElementById("divInferior").style.display = "block";
+            document.getElementById("divSuperior").style.display = "block";
+        } //closeGuia
+
+        function closeBlack() {
+            unmuteSlide();
+            closeSim();
+        } //closeBlack
+
+        function showMap() {
+            registra("showMap ...");
+            //hideMenu();
+            document.getElementById("divMapaContent").innerHTML = '<object type="text/html" data="content/bmv_mapa.html" style="position:absolute;top:0;left:0;width:100%;height:' + (height + 90) + 'px;overflow:hidden;overflow-y:hidden;overflow-x:hidden;padding:0px;margin:0px;" id="objectMapaContent"></object>';
+            // document.body.style.background ="#343434";
+            document.body.style.background = "#1d1f23";
+            //registra("previous muteSlide...");
+            muteSlide();
+            //registra("showMapa: " + height);
+
+            document.getElementById("divMapa").style.height = (height + 59) + "px";
+            document.getElementById("divMapa").style.width = (screen.availWidth - 25) + "px";
+            //document.getElementById("rowHeader").style.display="none";
+            $("#rowHeader").hide();
+            document.getElementById("divContent").style.display = "none";
+            document.getElementById("divSuperior").style.display = "none";
+            document.getElementById("divInferior").style.display = "none";
+
+            $("#divMapa").fadeIn();
+            registra("showMap Finish...");
+            conMapa = true;
+        } //showMap
+
+        function closeMap() {
+            //registra("closeMap");
+            document.body.style.background = "#FFFFFF";
+            //document.getElementById("rowHeader").style.display="inline";
+            $("#rowHeader").show();
+            document.getElementById("divContent").style.display = "block";
+            document.getElementById("divSuperior").style.display = "block";
+            document.getElementById("divInferior").style.display = "block";
+            $("#divMapa").hide();
+
+            //contextCirc.clearRect(0, 0, cCirc.width, cCirc.height);
+            //contextDG1.clearRect(0, 0, cDG1.width, cDG1.height);
+            //contextDG2.clearRect(0, 0, cDG2.width, cDG2.height);
+            if (audio1 != null) {
+                //audio1.play();
+            } // audio!=null
+            conMapa = false;
+        } //closeMap
+
+        var totalLock = 0;
+        var lockArray = new Array();
+        var lock = false;
+
+        function setLock(num) {
+            console.log("setLock num: " + num);
+            pantallaDesbloqueada = false;
+            console.log("pantallaDesbloqueada", pantallaDesbloqueada);
+            totalLock = num;
+            lockArray = new Array();
+            for (a = 0; a < num; a++) {
+                lockArray[a] = false;
+            }
+            console.log("lockArray", lockArray);
+
+            lock = false;
+        } //setLock
+
+        function pushLock(pos, data) {
+            data = data.toString();
+            console.log("pushLock pos: " + pos + " - data: " + data, "totalLock", totalLock);
+
+            if (lmsConnected) {
+
+                // suspendObject.M[0].t[(current - 1)]._b = true;
+                // suspendObject.M[0].t[(current)]._b = true;
+                // lock = true;
+            }
+
+            pos--;
+            if (pos < totalLock) {
+                lockArray[pos] = data;
+            }
+            var tmpFlag = true;
+            for (var i = 0; i < totalLock; i++) {
+                // console.log("lockArray[i]:  [" + lockArray[i] + "]");
+                if (!((lockArray[i] != "") && (lockArray[i] != "undefined") && (lockArray[i] != undefined))) {
+                    tmpFlag = false;
+                } // if
+
+                // console.log("lockArray[i] == totalLock", lockArray[i], totalLock);
+                // if (lockArray[i] == totalLock) {
+                //     lock = true;
+                //     pantallaDesbloqueada = true;
+                //     console.log("pantallaDesbloqueada", pantallaDesbloqueada);
+                //     tmpFlag = false;
+                // }
+            } // for var i
+            if (tmpFlag) {
+                // lock = false;
+            } // if tmpFlag
+            // console.log('lockArray', lockArray);
+            // console.log("pushLock lock " + (lock).toString());
+
+            function cuentaCandados() {
+                console.log('cuentaCandados lockArray', lockArray);
+                var bloq = lockArray.every(function(val) {
+                    return val != false;
+                });
+                if (bloq) {
+                    // console.log('todos los candados desblqueados', bloq);
+                    lock = true;
+                    pantallaDesbloqueada = true;
+                    console.log("pantallaDesbloqueada", pantallaDesbloqueada);
+                    tmpFlag = false;
+
+                    suspendData = suspendData.replace(/"/g, '|');
+                    console.log('el nuevo suspend data es', suspendData);
+                    scorm.set("cmi.suspend_data", suspendData);
+                    scorm.save();
+
+                } else {
+                    console.log('faltan candados por desbloquear');
+                }
+            }
+            cuentaCandados();
+
+        } //pushLock
+
+        function showAyuda() {
+            hideMenu();
+            document.body.style.background = "#343434";
+            muteSlide();
+            document.getElementById("divAyuda").style.height = (height + 39) + "px";
+            document.getElementById("divAyuda").style.width = (screen.availWidth - 35) + "px";
+            document.getElementById("divContent").style.display = "none";
+            document.getElementById("divSuperior").style.display = "none";
+            document.getElementById("divInferior").style.display = "none";
+            $("#divAyuda").fadeIn();
+        } //showGlossary
+
+        function closeAyuda() {
+            unmuteSlide();
+            //registra("fadeOut divAyuda*************************************");
+            $("#divAyuda").fadeOut();
+            document.body.style.background = "#FFFFFF";
+            document.getElementById("divContent").style.display = "block";
+            document.getElementById("divSuperior").style.display = "block";
+            document.getElementById("divInferior").style.display = "block";
+        } //closeAyuda
+
+        function showSim(num) {
+            var num = (typeof num !== 'undefined') ? num : 1; // valida la existencia del parámetro, de lo contrario asigna el valor 1 por default;
+
+            document.body.style.background = "#343434";
+            muteSlide();
+            //alert("showSim");
+            //registra('document.getElementById("divSim").style.height:' + document.getElementById("divSim").style.height);
+            //registra('document.getElementById("divSim").style.width:' + document.getElementById("divSim").style.width);
+            //document.getElementById('divSim').setAttribute("style","height:"+(screen.availHeight+0)+"px");
+            //document.getElementById("divSim").style.height= (screen.availHeight+20) +"px";
+            document.getElementById("divSim").style.height = (height + 39) + "px";
+            document.getElementById("divSim").style.width = (screen.availWidth - 35) + "px";
+            //document.getElementById('divSim').setAttribute("style","width:"+(screen.availWidth-20)+"px");
+            //registra('document.getElementById("divSim").style.height:' + document.getElementById("divSim").style.height);
+            //registra('document.getElementById("divSim").style.width:' + document.getElementById("divSim").style.width);
+            num--;
+            var arraySims = topicsArray[current - 1].sim.split(";");
+            var sim = arraySims[num];
+            if (num < arraySims.length) {
+                //registra(arraySims[num]);
+                sim = arraySims[num];
+            } //if num < arraySims
+            document.getElementById("divSim").innerHTML = '<object type="text/html" data="' + sim + '" style="position:relative;width:' + (screen.availWidth - 35) + 'px;height:' + (height + 39) + 'px;overflow:hidden;overflow-y:hidden;overflow-x:hidden;padding:0px;overflow:hidden;margin:auto;"></object>';
+            document.getElementById("divSim").style.display = "block";
+            document.getElementById("divContent").style.display = "none";
+            document.getElementById("divSuperior").style.display = "none";
+            document.getElementById("divInferior").style.display = "none";
+
+            window.top.document.getElementById("scorm_content").style.background = "#343434";
+        } //showSim
+
+        function closeSim() {
+            //registra("closeSim");
+            document.body.style.background = "#FFFFFF";
+            document.getElementById("divContent").style.display = "block";
+            document.getElementById("divSuperior").style.display = "block";
+            document.getElementById("divInferior").style.display = "block";
+            document.getElementById("divSim").style.display = "none";
+            //document.getElementById("divGuia").style.display="none";
+            $("#divGuia").fadeOut();
+            document.getElementById("divGlossary").style.display = "none";
+            document.getElementById("divAyuda").style.display = "none";
+            document.getElementById("divSim").innerHTML = "";
+            userScore = 0;
+            numPre = 0;
+            unmuteSlide();
+
+            window.top.document.getElementById("scorm_content").style.background = "#FFFFFF";
+        } //closeSim
+
+        function closeDiv() {
+            closeSim();
+        } //closeDiv
+
+        function muteSlide() {
+            registra("muteSlide...");
+            if (audio1 != null) {
+                registra("muteSlide - audio1.pause...");
+                audio1.pause();
+            } // audio!=null
+            if (hdocument != null) {
+                hdocument.pauseTimelineNamed('kTimelineDefaultIdentifier');
+            } // hdocument!=null
+        } //muteSlide
+
+
+        function unmuteSlide() {
+
+            registra("unmuteSlide..." + navigator.appVersion);
+            registra("audio1 " + audio1);
+            registra("hdocument " + hdocument);
+            if ((navigator.appVersion.indexOf("Chrome") == -1) || (navigator.appVersion.indexOf("Edge") > -1)) {
+                if ((audio1 != null) && (audio1 != undefined)) {
+                    registra("unmuteSlide - audio1.pause...");
+                    audio1.play();
+                } // audio!=null
+                if ((hdocument != null) && (hdocument != undefined)) {
+                    registra("currentTimeInTimelineNamed kTimelineDefaultIdentifier: " + hdocument.currentTimeInTimelineNamed('kTimelineDefaultIdentifier'));
+                    registra("durationForTimelineNamed kTimelineDefaultIdentifier: " + hdocument.durationForTimelineNamed('kTimelineDefaultIdentifier'));
+                    hdocument.continueTimelineNamed('kTimelineDefaultIdentifier');
+                } // hdocument!=null
+            } // if Chrome
+        } //unmuteSlide
+
+        function setMarcador() {
+            registra("setMarcador");
+            if (lmsConnected) { // solo si se está conectado al LMS
+                if (scorm.version == "1.2") {
+                    res = scorm.data.set("cmi.core.lesson_location", (current));
+                } else if (scorm.version == "2004") {
+                    res = scorm.data.set("cmi.location", (current));
+                } //if
+                var tmpStr = topicsArray[current - 1].bookmark;
+                $("#marcador").html(tmpStr);
+                registra("#marcador: " + tmpStr);
+                var indexI = topicsArray[current - 1].indexI;
+                var indexJ = topicsArray[current - 1].indexJ;
+                registra("indexI: " + indexI);
+                registra("indexJ: " + indexJ);
+                suspendObject.M[indexI].t[indexJ]._b = true;
+                registra("setMarcador suspendObject: " + suspendObject.M[indexI].t[indexJ]._b);
+                suspendData = JSON.stringify(suspendObject);
+
+                console.log('el suspend data es', suspendData);
+                suspendData = suspendData.replace(/"/g, '|');
+                console.log('el nuevo suspend data es', suspendData);
+
+                scorm.set("cmi.suspend_data", suspendData);
+            } //if lmsConnected
+        } //setMarcador
+
+        function resizeDiv() {
+            registra("1. resizeDiv: " + height + "\ninnerHeight: " + window.innerHeight + "\nparent.innerHeight: " + window.parent.innerHeight + "\n");
+            registra("div Ayuda height: " + document.getElementById("divAyuda").style.height);
+            registra("div Ayuda width: " + document.getElementById("divAyuda").style.width);
+            if (window.innerHeight > window.innerWidth) {
+                //	alert("Por favor gira tu dispositivo horizontalmente.");
+            } // Please use Landscape!
+            height = ((window.parent.innerHeight - divSuperiorHeight) - divInferiorHeight) - 45;
+            if (((navigator.userAgent.indexOf("Chrome") > -1) || (navigator.userAgent.indexOf("Edge") > -1)) && (navigator.platform.toLowerCase() == "win32")) {
+                height -= 35;
+            } // if 
+            if ((navigator.platform.toLowerCase().indexOf("ipad") != -1) ||
+                (navigator.platform.toLowerCase().indexOf("ipod") != -1) ||
+                (navigator.platform.toLowerCase().indexOf("iphone") != -1)) {
+                //$("#imgFullScreen").hide();
+                document.getElementById("canvasGraph1").style.width = "530px";
+                document.getElementById("canvasGraph1").width = "530";
+            } // if ipad ipod iphone
+            registra("navigator.platform: " + navigator.platform + "\nnavigator.appName: " + navigator.appName + "\nnavigator.appCodeName: " + navigator.appCodeName + "\nnavigator.userAgent: " + navigator.userAgent + "\nnavigator.platform: " + navigator.platform);
+
+            registra("2. resizeDiv: " + height + "\ninnerHeight: " + window.innerHeight + "\nparent.innerHeight: " + window.parent.innerHeight);
+            //	document.forms[0].inputData.value+="2. resizeDiv: " + height + "\ninnerHeight: " + window.innerHeight+ "\nparent.innerHeight: "  +  window.parent.innerHeight+"\n";
+            //alert ("window.outerHeight: " +window.innerHeight + "\nheight:" + height);
+            document.getElementById("divContent").style.height = height + "px";
+            document.getElementById("divBack").style.height = document.getElementById("divContent").style.height;
+            //$("#divBack").hide();
+            $("#divSuperior").show();
+            $("#divContent").show();
+            $("#divInferior").show();
+            document.getElementById("divAyuda").style.height = height + "px";
+            document.getElementById("objectAyuda").style.height = height + "px";
+            registra("div Ayuda height: " + document.getElementById("divAyuda").style.height);
+            registra("div Ayuda width: " + document.getElementById("divAyuda").style.width);
+        } //resizeDiv_resizesable
+
+        function resizeDiv_2_Size() {
+            registra("resizeDiv screen.availHeight: " + screen.availHeight);
+            registra("resizeDiv maxHeight: " + maxHeight);
+            if ((screen.availHeight < maxHeight) && ((navigator.platform.toLowerCase().indexOf("ipad") == -1) &&
+                    (navigator.platform.toLowerCase().indexOf("ipod") == -1) &&
+                    (navigator.platform.toLowerCase().indexOf("iphone") == -1))) {
+                //height=460;
+                height = 555;
+                document.getElementById("divContent").style.height = height + "px";
+            } else if ((screen.availHeight > maxHeight) && ((navigator.platform.toLowerCase().indexOf("ipad") == -1) &&
+                    (navigator.platform.toLowerCase().indexOf("ipod") == -1) &&
+                    (navigator.platform.toLowerCase().indexOf("iphone") == -1))) {
+                //--jc
+                //height=680;
+                //height=768;
+                height = 667;
+                width = 1200;
+                document.getElementById("divContent").style.height = height + "px";
+                document.getElementById("divContent").style.width = width + "px";
+                document.getElementById("divSuperior").style.width = width + "px";
+                //document.getElementById("divSuperiorPadre").style.width=width+"px";
+                document.getElementById("divInferior").style.width = width + "px";
+                registra("resizeDiv height: " + height);
+            } else if ((screen.availHeight > 800) && ((navigator.platform.toLowerCase().indexOf("ipad") > -1) ||
+                    (navigator.platform.toLowerCase().indexOf("ipod") > -1) ||
+                    (navigator.platform.toLowerCase().indexOf("iphone") > -1))) {
+                height = 680;
+                document.getElementById("divContent").style.height = height + "px";
+                document.getElementById("divBack").style.height = height + "px";
+                //alert("height: " + height);
+            } // else // if maxHeight
+            document.getElementById("divBack").style.height = document.getElementById("divContent").style.height;
+            $("#divBack").hide();
+            $("#divSuperior").show();
+            $("#divContent").show();
+            $("#divInferior").show();
+            document.getElementById("divAyuda").style.height = height + "px";
+            document.getElementById("divGuia").style.height = height + "px";
+            registra("***///*** end resizeDiv height: " + height);
+
+            // registra("divContent style height : " + $("#divContent").height());
+            // registra("divSuperior style height : " + $("#divSuperior").height() + "- " + $("#divSuperior").innerHeight() + "- " + $("#divSuperior").outerHeight() + "- " + $("#divSuperior").outerHeight(true));
+            // registra("divInferior style height : " + $("#divInferior").height() + "- " + $("#divInferior").innerHeight()+ "- " + $("#divInferior").outerHeight()+ "- " + $("#divInferior").outerHeight());
+            // registra("total 3: " + ( parseInt($("#divContent").height(),10) +
+            // 	parseInt($("#divSuperior").height(),10) + 
+            // 	parseInt($("#divInferior").height(),10) ) );
+        } //resizeDiv_2_Size
+
+        /// Objects for XML parameters
+
+        //  Valores por default para el gráfico principal
+        // graphMainObject(graphColor, graphBackgroundColor, textColor, textBackgroundColor, centralCircleColor, messages) {
+        // graphMainObject(graphColor, graphBackgroundColor, textColor, textBackgroundColor, centralCircleColor, lineWidth, backgroundLineWidth, messages) {
+
+        var graphMain = new graphMainObject("#00bad0", "#222736", "#FFFFFF", "#333333", "#00bad0", 9, 20, null);
+        //  Valores por default para los gráficos de los módulos
+        //graphModulesObject (progressColor, progressBackgroundColor, progressSelectedBackgroundColor, squareBackgroundColor, squareSelectedBackgroundColor, textColor)
+        //graphModulesObject (progressColor, progressBackgroundColor, progressSelectedBackgroundColor, squareBackgroundColor, squareSelectedBackgroundColor, textColor)
+        var graphModules = new graphModulesObject("#61AAEB", "#3F4456", "#61AAEB", "#1D1F23", "#1D1F23", "#9FAABC");
+        //  Valores por default para los elementos de los módulos	
+        //contentModules = new contentModulesObject (textColor, lineSquareColor, squareColor, squareSelectedColor);
+        var contentModules = new contentModulesObject("#9FAABC", "#ACACAD", "#2E3135", "#46ADF9");
+        //graphPerformanceObject(messages, levels)
+        var graphPerformance = new graphPerformanceObject(null, null);
+        var abilityItemsArray = new Array();
+        var abilityDataArray = new Array();
+        var evaluaArray = new Array();
+        var evaluaArrayCont = 0;
+        var starsArray = new Array();
+        var finalAssessment = "";
+        var assessmentNAFile = "";
+        var assessmentAFile = "";
+
+        //// Load All XML Data - jc
+        $(document).ready(function() {
+            registra("ready...");
+            $.ajax({
+                type: "GET",
+                url: "./index.xml",
+                dataType: "xml",
+                success: function(xml) {
+                    var xmlDoc = $.parseXML(xml);
+                    var $xml = $(xmlDoc);
+                    var index = xml.getElementsByTagName("index");
+                    var titulo = index[0].getAttribute("course");
+                    var totalTopics = 0;
+                    var m = xml.getElementsByTagName("module");
+                    suspendObject = new suspendObj(m.length - 1);
+                    var contador = 0;
+                    for (var i = 0; i < m.length; i++) {
+                        var t = m[i].getElementsByTagName("topic");
+                        suspendObject.M[i] = new mo(t.length);
+                        var tArray = new Array();
+                        for (var j = 0; j < t.length; j++) {
+                            contador++;
+                            tArray[j] = new topic(t[j].getAttribute("name"), t[j].getAttribute("file"), t[j].getAttribute("file"), t[j].getAttribute("audio"), t[j].getAttribute("audiofile"), "", contador, i, j);
+                        } //for j topics raw
+                        for (j = 0; j < t.length; j++) {
+                            suspendObject.M[i].t[j] = new na(j, false);
+                            topicsArray[totalTopics] = new topic(t[j].getAttribute("name"), m[i].getAttribute("name"), t[j].getAttribute("file"), t[j].getAttribute("audio"), t[j].getAttribute("audiofile"), t[j].getAttribute("sim"), ((j + 1) + " / " + tArray.length), i, j, t[j].getAttribute("lock"));
+                            console.log("name: " + t[j].getAttribute("name") + " - lock: " + t[j].getAttribute("lock"));
+                            totalTopics++;
+                        } //for j topics in module
+                        modulesArray[i] = new module(m[i].getAttribute("name"), m[i].getAttribute("number"), m[i].getAttribute("image"), tArray);
+                    } //for i modules
+                    var tmpSD = "none";
+                    try {
+                        tmpSD = JSON.stringify(suspendObject);
+                    } catch (err) {
+                        registra("JSON.stringify: " + err.message);
+                    } //catch
+                    registra("suspendObject stringify: " + tmpSD);
+                    current = 1;
+                    if (lmsConnected) {
+                        var tmpCurrent;
+                        if (scorm.version == "1.2") {
+                            tmpCurrent = parseInt(scorm.get("cmi.core.lesson_location"), 10);
+                        } else if (scorm.version == "2004") {
+                            tmpCurrent = parseInt(scorm.get("cmi.location"), 10);
+                        } //else 2004 // if scorm.version 1.2 
+
+                        if (isNaN(tmpCurrent)) {
+                            // Es la primera vez que el curso se abre.
+                            firstTime = true;
+                            current = 1;
+                        } else {
+                            current = tmpCurrent;
+                        } // if isNaN
+                        registra("Current: " + current);
+                        tmpSuspend = scorm.get("cmi.suspend_data"); // cmi.suspend_data 1.2 y 2004
+                        ///// ejecutar esto en el ready para que el objeto suspendObject se ecnuentre creado.
+                        if ((tmpSuspend.length == 0) || (tmpSuspend == undefined) || (tmpSuspend == "undefined")) {
+
+                            console.log('el suspend data es', tmpSuspend);
+                            tmpSuspend = tmpSuspend.replace(/"/g, '|');
+                            console.log('el nuevo suspend data es', tmpSuspend);
+
+                            scorm.set("cmi.suspend_data", tmpSuspend); // crea el nuevo objeto en 
+                            //pipwerks.SCORM.data.set("cmi.suspend_data", JSON.stringify(suspendObject)); // crea el nuevo objeto en suspend_data
+                        } else {
+                            try {
+                                console.log('get el suspend data es', tmpSuspend);
+                                tmpSuspend = tmpSuspend.replace(/\u007C/g, '"');
+                                console.log('get el nuevo suspendData es', tmpSuspend);
+
+                                suspendData = JSON.stringify(tmpSuspend);
+                                suspendObject = JSON.parse(tmpSuspend);
+
+                                //registra("try tmpSuspend: " + tmpSuspend);
+                                //registra("suspendObject.M[0].t[0]._t:" + suspendObject.M[0].t[0]._t);
+                            } catch (err) {
+                                registra("JSON.parse error: " + err.message);
+                                suspendData = suspendObject;
+                            } //catch
+                        } //else // if tmpSuspend.length == 0
+                    } // if lmsConnected 
+                    resizeDiv();
+                    loadSlide();
+                    //setMarcador();
+                } // success
+            }); //ajax index
+
+            fatality();
+
+        }); //ready
+        //----------------- Object suspend_data
+        var suspendObject;
+        var conMapa = false;
+
+        function suspendObj(numModules, numAbilities) {
+            this.caliFinal = 0; /// valor de la calificación final
+            this.caliDragDrop = 0;
+            this.caliAbility = new Array(numAbilities); /// elemento que almacena las calificaciones de las prácticas de cada módulo
+            for (var i = 0; i < numAbilities; i++) {
+                this.caliAbility[i] = 0;
+            } // for i
+            this.caliEvalua = new Array(); /// elemento que almacena las calificaciones de las evaluaciones de cada módulo
+            this.M = new Array(numModules);
+            this.setTotalCaliEvalua = setTotalCaliEvalua;
+        } //suspendObj
+
+        function setTotalCaliEvalua(tot) {
+            this.caliEvalua = new Array(tot);
+            for (var i = 0; i < tot; i++) {
+                this.caliEvalua[i] = 0;
+            } // for i
+        } // setTotalCaliEvalua
+
+        function caliData(mod, num, cali) {
+            this.mod = mod; /// número del módulo
+            this.num = num; /// número dentro del módulo
+            this.cali = cali; /// calificación del elemento
+        } // caliData
+
+        function mo(numTopics) {
+            this.t = new Array(numTopics);
+        } //m
+
+        function na(_t, _b) {
+            this._t = _t;
+            this._b = _b;
+        } //t
+        //----------------- Objects Index
+        var modulesArray = new Array();
+        var topicsArray = new Array();
+
+        function module(name, number, image, topics) {
+            this.name = name;
+            this.number = number;
+            this.image = image;
+            this.topics = topics; // array
+            this.getModule = getModule;
+            //this.getTotalTopics = getTotalTopics;
+        } //module constructor
+
+        function topic(name, fullName, file, audio, audioFile, sim, bookmark, indexI, indexJ) {
+            this.name = name;
+            this.fullName = fullName;
+            this.file = file;
+            this.audio = audio;
+            this.audioFile = audioFile;
+            this.sim = sim;
+            this.bookmark = bookmark;
+            this.indexI = indexI;
+            this.indexJ = indexJ;
+            this.getTopic = getTopic;
+        } //topic constructor
+
+
+        // function topic(name, fullName, file, audio, audioFile, sim, bookmark){
+        // 	this.name = name;
+        // 	this.fullName = fullName;
+        // 	this.file = file;
+        // 	this.audio = audio;
+        // 	this.audioFile = audioFile;
+        // 	this.sim = sim;
+        // 	this.bookmark = bookmark;
+        // 	this.getTopic = getTopic;
+        // }//topic constructor
+
+        function getModule() {
+            var content = "";
+            for (i = 0; i < this.topics.length; i++) {
+                content += this.topics[i].getTopic();
+            } //for i topics
+            return "Module: " + this.name + "-" + this.number + "-" + this.image + content;
+        } //getModule
+
+        function getTopic() {
+            return "Topic: " + this.name + " - " + this.fullName + " - " + this.file + " - " + this.audio + " - " + this.audioFile + " - " + this.sim + "\n";
+        } //getTopic
+
+        function getTotalTopics() {
+            var total = 0;
+            for (var i = 0; i < modulesArray.length; i++) {
+                total += modulesArray[i].topics.length;
+            } //for i
+            //registra("getTotalTopics(): " + total);
+            return total;
+            //return (total+1);
+        } //getTotalTopics
+
+        var gArray = new Array();
+        var lastLI = null;
+
+        function gloss(term, definition, image) {
+            this.term = term;
+            this.definition = definition;
+            this.image = image;
+            this.getDefHTML = getDefHTML;
+            this.getImageHTML = getImageHTML;
+        } // obj gloss
+
+        function getDefHTML() {
+            return this.definition.replace(/\[/g, "<").replace(/\]/g, ">");
+        } // getDefHTML
+
+        function getImageHTML() {
+
+            return "<img src='" + this.image + "' style='margin:auto;' class='img-responsive'/>";
+        } //getImageHTML
+
+        function goToDef(i) {
+            document.getElementById("divdef").innerHTML = "<b>" + gArray[i].term + "</b><br/><br/>" + gArray[i].getDefHTML() + "<br/><br/>" + gArray[i].getImageHTML();
+        } //goToDef
+
+        function setLastLI(li) {
+            lastLI = li;
+        } //setLastLI
+
+        function changeBold(t) {
+            $(t).removeClass("ligloss");
+            $(t).addClass("liglossBold");
+            //t.style="font-weight:bold";
+            if (lastLI != null) {
+                //$(lastLI).css("font-weight", "normal");
+                //lastLI.style="font-weight:normal";
+                $(lastLI).removeClass("liglossBold");
+                $(lastLI).addClass("ligloss");
+            } //if lastLI !=null
+            setLastLI(t);
+        } //changeBold
+        registra("window height: " + $(window).height() + "\n" +
+            "document height : " + $(document).height() + "\n" +
+            "window width: " + $(window).width() + "\n" +
+            "document width: " + $(document).width() + "\n" +
+            "window innerWidth: " + window.innerWidth + "\n" +
+            "window.innerHeight: " + window.innerHeight + "\n" +
+            "screen height: " + screen.height + "\n" +
+            "screen width: " + screen.width + "\n" +
+            "screen availWidth : " + screen.availWidth + "\n" +
+            "screen availHeight : " + screen.availHeight + "\n" +
+            "screen colorDepth: " + screen.colorDepth + "\n" +
+            "screen pixelDepth: " + screen.pixelDepth + "\n" +
+            "navigator appCodeName: " + navigator.appCodeName + "\n" +
+            "navigator appName: " + navigator.appName + "\n" +
+            "navigator appVersion: " + navigator.appVersion + "\n" +
+            "navigator platform: " + navigator.platform + "\n" +
+            "navigator userAgent: " + navigator.userAgent);
+
+        function graphModulesObject(progressColor, progressBackgroundColor, progressSelectedBackgroundColor, squareBackgroundColor, squareSelectedBackgroundColor, textColor) {
+            this.progressColor = progressColor;
+            this.progressBackgroundColor = progressBackgroundColor;
+            this.progressSelectedBackgroundColor = progressSelectedBackgroundColor;
+            this.squareBackgroundColor = squareBackgroundColor;
+            this.squareSelectedBackgroundColor = squareSelectedBackgroundColor;
+            this.textColor = textColor;
+        } // graphModulesObject
+
+        function contentModulesObject(textColor, lineSquareColor, squareColor, squareSelectedColor) {
+            this.textColor = textColor;
+            this.lineSquareColor = lineSquareColor;
+            this.squareColor = squareColor;
+            this.squareSelectedColor = squareSelectedColor;
+        } // contentModulesObject
+
+        function graphMainObject(graphColor, graphBackgroundColor, textColor, textBackgroundColor, centralCircleColor, lineWidth, backgroundLineWidth, messages) {
+            this.graphColor = graphColor;
+            this.graphBackgroundColor = graphBackgroundColor;
+            this.textColor = textColor;
+            this.textBackgroundColor = textBackgroundColor;
+            this.centralCircleColor = centralCircleColor;
+            this.lineWidth = lineWidth;
+            this.backgroundLineWidth = backgroundLineWidth;
+            this.messages = messages; // array messages
+        } // graphMainObject
+
+        function msgs(msg, min, max) {
+            this.msg = msg;
+            this.min = min;
+            this.max = max;
+        } // msgs
+
+        function graphPerformanceObject(messages, levels) {
+            this.messages = messages; // arreglo de mensajes
+            this.levels = levels; // arreglo de niveles
+        } // graphPerformanceObject
+
+        function messagePerformanceObject(title, _module) {
+            this.title = title;
+            this._module = _module;
+        } // messagePerformanceObject
+
+        function levelPerformanceObject(min, max, text) {
+            this.min = min;
+            this.max = max;
+            this.text = text;
+        } //levelPerformanceObject
+
+        function abilityItemObject(module, text, number, messages) { // se debe crear un arreglo de abilityItemObject
+            this.module = module; // módulo
+            this.text = text.replace(/\\n/g, ' - '); // texto de cada elemento
+            registra("abilityItemObject text: " + text);
+            registra("abilityItemObject text: " + this.text);
+            this.number = number // número de orden
+            this.messages = messages; // arreglo de mensajes de cada elemento
+        } //abilityItemObject
+
+        function messageItemObject(star, text) {
+            this.star = star;
+            this.text = text;
+        } // messageItemObject
+
+        function starObject(number, min, max, text) {
+            this.number = number;
+            this.min = min;
+            this.max = max;
+            this.text = text;
+        } // starObject
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        var canvasProgress01;
+        var ctx01;
+
+        function mainProgress(prog) {
+            canvasProgress01 = document.getElementById("canvasProgress");
+            ctx01 = canvasProgress01.getContext("2d");
+            ctx01.beginPath();
+            // Background progress
+            ctx01.fillStyle = "#898DA5";
+            roundRect(ctx01, 0, 0, canvasProgress01.width, canvasProgress01.height, 0, true, false);
+            ctx01.fill();
+            ctx01.stroke();
+            // Foreground progress
+            ctx01.strokeStyle = "#4AAA42"; //graphModules.progressColor;//"#B42184";//"#487FD7";
+            ctx01.fillStyle = "#4AAA42"; //"#B42184";//"#487FD7";
+            roundRect(ctx01, 0, 0, ((prog * canvasProgress01.width) / 100), canvasProgress01.height, 0, true, false);
+            // Fill both
+            ctx01.fill();
+            // Stroke both
+            ctx01.stroke();
+            // separators
+            ctx01.lineWidth = 3;
+            ctx01.strokeStyle = "#254468";
+            var factor = Math.ceil(canvasProgress01.width / 30);
+            for (i = 1; i <= 31; i++) {
+                ctx01.moveTo(factor * i, 0);
+                ctx01.lineTo(factor * i, canvasProgress01.height);
+            } //for i
+            ctx01.stroke();
+            ctx01.closePath();
+            //#4d4d4d //  gris
+            // #ffd100 // amarillo
+        } // mainProgress
+
+        function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+            if (typeof stroke == 'undefined') {
+                stroke = true;
+            } // if stroke
+            if (typeof radius === 'undefined') {
+                radius = 5;
+            } // if radius
+            if (typeof radius === 'number') {
+                radius = {
+                    tl: radius,
+                    tr: radius,
+                    br: radius,
+                    bl: radius
+                };
+            } else {
+                var defaultRadius = {
+                    tl: 0,
+                    tr: 0,
+                    br: 0,
+                    bl: 0
+                };
+                for (var side in defaultRadius) {
+                    radius[side] = radius[side] || defaultRadius[side];
+                } // for
+            } //else 
+            ctx.beginPath();
+            ctx.moveTo(x + radius.tl, y);
+            ctx.lineTo(x + width - radius.tr, y);
+            ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
+            ctx.lineTo(x + width, y + height - radius.br);
+            ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
+            ctx.lineTo(x + radius.bl, y + height);
+            ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
+            ctx.lineTo(x, y + radius.tl);
+            ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+            ctx.closePath();
+            if (fill) {
+                ctx.fill();
+            } // if fill
+            if (stroke) {
+                ctx.stroke();
+            } // if stroke
+        } // roundRect
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        //// funciones de controles de audio y animación para pantallas de Tumult.
+        var hdocument;
+        var helement;
+        var audio1;
+
+        function sendDocumentReference(hd) {
+            hdocument = hd;
+            registra("sendDocumentReference");
+            //audio1 = document.getElementById('audio1');
+            //audio1= new Audio("content/cur_w10_m1_p01_prueba4/cur_w10_m1_p01_prueba4.hyperesources/au_win_m1_p1.mp3");
+            //registra("resources: " + hdocument.resourcesFolderURL()+"/au_win_m1_p1.mp3");
+            registra("resources: " + hdocument.resourcesFolderURL() + "/" + topicsArray[current - 1].audioFile);
+            //audio1= new Audio(hdocument.resourcesFolderURL()+"/au_win_m1_p1.mp3");
+            audio1 = new Audio(hdocument.resourcesFolderURL() + "/" + topicsArray[current - 1].audioFile);
+            registra("load audio1");
+            //helement=hdocument.getElementById("btnComenzar");
+        } //aguacate
+
+        function sendButtonReference(e) {
+            helement = e; /// btnComenzar
+            registra("sendButtonReference");
+            //document.getElementById("btnGetData").click();
+            if ((navigator.platform.toLowerCase().indexOf("ipad") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("ipod") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("iphone") == -1)) {
+                registra("sendButtonReference NOT iPad, iPod, iPhone *********");
+                if (helement != null) {
+                    registra("sendButtonReference helement NOT NULL");
+                    registra(helement.innerHTML);
+                    //helement.style.display="none";
+                    $(helement).hide(); /// ocultar btnComenzar	
+                } else {
+                    registra("sendButtonReference helement is NULL");
+                } //else //if helement != null
+
+            } //if not ipad ipod iphone
+            getData();
+        } // guacamole
+
+        function pauseAnim() {
+            if ((navigator.platform.toLowerCase().indexOf("ipad") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("ipod") == -1) &&
+                (navigator.platform.toLowerCase().indexOf("iphone") == -1)) {
+                registra("pauseAnim NOT iPad, iPod, iPhone *********");
+                //$(e).hide(); /// ocultar btnComenzar
+                //helement=hdocument.getElementById("btnComenzar");
+                registra("helement: " + helement);
+                //helement=hdocument.getElementById("hype-obj-VV6NF6MZDC1LJGL0WYUL");
+                //registra("helement: " + helement);
+                if (helement != null) {
+                    registra("pauseAnim helement NOT NULL");
+                    helement.style.display = "none";
+                    $(helement).hide();
+                } else {
+                    registra("pauseAnim helement is NULL");
+                } //else // if (helement!=null)
+                registra("pauseAnim audio1.play()");
+                audio1.play();
+            } else {
+                //hdocumen.goToTimeInTimelineNamed(1, 'kTimelineDefaultIdentifier');
+                hdocument.pauseTimelineNamed('kTimelineDefaultIdentifier');
+                audio1.pause();
+            } //else // if not ipad ipod iphone
+        } //
+
+        function initAnim(e) {
+            hdocument.continueTimelineNamed('kTimelineDefaultIdentifier', hdocument.kDirectionForward, false);
+            registra("initAnim ... audio1.play");
+            audio1.play();
+            if (e != null) {
+                registra("initAnim e NOT NULL");
+                e.style.display = "none";
+                $(e).hide();
+            } else {
+                registra("initAnim e is NULL");
+            } //else //if e!=null
+        } // initAnim // función llamada desde la página creada en tumult.
+
+        function getData() {
+            //document.getElementById("btnGetData").innerHTML="init getData();";
+            //audio1.play();
+            registra("helement: " + helement.id);
+            registra("documentName: " + hdocument.documentName());
+            registra("documentId: " + hdocument.documentId());
+            registra("sceneNames: " + hdocument.sceneNames());
+            registra("currentSceneName: " + hdocument.currentSceneName());
+            registra("functions: " + hdocument.functions());
+            //registra("HYPE.documents.length " + HYPE.documents.length);
+            //registra("HYPE.documents " + HYPE.documents);
+            registra("hypeDocument.resourcesFolderURL(): " + hdocument.resourcesFolderURL());
+            registra("_pW10_1: " + hdocument.getElementById("_pW10_1"));
+            registra("au_win_m1_p1: " + hdocument.getElementById("au_win_m1_p1"));
+            registra("63: " + hdocument.getElementById("63"));
+
+            //	registra (": " + hdocument.getElementById(""));
+        } //getData
+
+        function muteAudio1() {
+            audio1.volume = 0;
+        } //muteAudio1
+
+        function unMuteAudio1() {
+            audio1.volume = 1;
+        } //muteAudio1
+
+        function continueTimeLine() {
+            hdocument.continueTimelineNamed('kTimelineDefaultIdentifier', hdocument.kDirectionForward, false);
+            audio1.play();
+        } //continueTimeLine();
+
+        function pauseTimeLine() {
+            //HYPE.documents['cur_w10_m1_p01_prueba'].pauseTimelineNamed('kTimelineDefaultIdentifier');
+            hdocument.pauseTimelineNamed('kTimelineDefaultIdentifier');
+            audio1.pause();
+        } //pauseTimeLine();
+
+        function gotoTimeLine() {
+
+            audio1.currentTime += 5;
+            var time = hdocument.currentTimeInTimelineNamed('timelineName') + 5;
+            if (time >= hdocument.durationForTimelineNamed('kTimelineDefaultIdentifier')) {
+                time = 0;
+                audio1.currentTime = -5;
+            } //if 
+            hdocument.goToTimeInTimelineNamed(time, 'kTimelineDefaultIdentifier');
+        } //gotoTimeLine
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        ///////////////////////////////////////////// Diploma 
+        function showDiploma() {
+            generaDiploma(learnername);
+        } //showDiploma
+        function doCert() {
+            generaDiploma(learnername);
+        } // doCert
+        function generaDiploma(username) {
+            var arr = username.split(",");
+            var user = "";
+            if (arr.length >= 2) {
+                user += arr[1];
+            } //length>=2
+            if (arr.length >= 1) {
+                user += " " + arr[0];
+            } //length>=1
+            var getImageFromUrl = function(url, callback) {
+                var img = new Image(),
+                    data, ret = {
+                        data: null,
+                        pending: true
+                    };
+                img.onError = function() {
+                    throw new Error('Cannot load image: "' + url + '"');
+                };
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    document.body.appendChild(canvas);
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    var ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    // Grab the image as a jpeg encoded in base64, but only the data
+                    //data = canvas.toDataURL('image/jpeg').slice('data:image/jpeg;base64,'.length);
+                    data = canvas.toDataURL('image/png').slice('data:image/png;base64,'.length);
+                    // Convert the data to binary form
+                    data = atob(data);
+                    document.body.removeChild(canvas);
+                    ret['data'] = data;
+                    ret['pending'] = false;
+                    if (typeof callback === 'function') {
+                        callback(data);
+                    }
+                };
+                img.src = url;
+                return ret;
+            };
+            var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+            var f = new Date();
+            var fecha = f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()
+            var createPDF = function(imgData) {
+                var doc = new jsPDF('landscape', 'mm', 'letter'); // portrait  //landscape   // A4
+                //doc.addImage(imgData, 'JPEG', 0, 0, 298, 210);
+                // var imgWidth = 210; 
+                //  	var pageHeight = 295;  
+                //  	var imgHeight = imgTmp.height * imgWidth / imgTmp.width;
+                //  	var heightLeft = imgHeight;
+                //alert("imgHeight: " + imgHeight + "\nimgTmp.height: "+ imgTmp.height +"\nimgTmp.width: " + imgTmp.width);
+                //doc.addImage(imgData, 'PNG', 0, 0, 298, 210);   // 298mm -> 1126px - 210mm -> 794px
+                //doc.addImage(imgData, 'PNG', 0, 0, 210, 297); //  162mm -> 612px - 210mm ->793mm  // A4
+                // doc.addImage(imgData, 'PNG', 0, 0, 216, 279); //  162mm -> 612px - 210mm ->793mm   // letter
+                doc.addImage(imgData, 'PNG', 0, 0, 279, 216, undefined, 'fast'); //  162mm -> 612px - 210mm ->793mm   // letter   /// fast medium slow
+
+                doc.setFontSize(22);
+                doc.setFont("verdana");
+                //doc.setFontType("bold");
+                //var x = parseInt( (161-(doc.getTextWidth(user))) ,10);
+                var x = parseInt(((279 - 65) - doc.getTextWidth(user)) / 2, 10) + 65;
+                //doc.text(70, 100, user);
+                doc.text(x, 96, user);
+                //doc.setFontSize(18);
+                //x = parseInt( (274-(doc.getTextWidth("Microsoft Windows 10"))) ,10);
+                //doc.text(x, 90, "Microsoft Windows 10");
+                doc.setFontSize(18);
+                doc.setFont("verdana");
+                //x = parseInt( (161-(doc.getTextWidth(fecha))) ,10);
+                //doc.text(80, 160, fecha);
+
+                x = parseInt(((279 - 60) - doc.getTextWidth(fecha)) / 2, 10) + 60;
+                doc.text(x, 160, fecha);
+                var nDate = new Date();
+                doc.save('Diploma_Liderazgo_' + nDate.getFullYear().toString() + (nDate.getMonth() + 1).toString() + nDate.getDate().toString() + '_' + nDate.getHours().toString() + nDate.getMinutes().toString() + nDate.getSeconds().toString() + '.pdf');
+                //doc.save('diploma_Windows_10.pdf');
+            } // createPDF
+
+            getImageFromUrl('l_diploma.png', createPDF);
+        } // generaDiploma
+
+
+
+
+        /////////////////////////////////////////////////////////
+        function fatality() {
+            var secuencia = "";
+            $(document).keydown(function(e) {
+                console.log(e.keyCode);
+                if (e.keyCode == 38) {
+                    if (secuencia == "") {
+                        secuencia = "arriba";
+                    } else {
+                        secuencia = "";
+                    }
+                    console.log("secuencia: " + secuencia);
+                    e.preventDefault();
+                }
+                if (e.keyCode == 40) {
+                    if (secuencia == "arriba") {
+                        secuencia = "abajo";
+                    } else {
+                        secuencia = "";
+                    }
+                    console.log("secuencia: " + secuencia);
+                    e.preventDefault();
+                }
+                if (e.keyCode == 37) {
+                    if (secuencia == "abajo") {
+                        secuencia = "izquierda";
+                    } else {
+                        secuencia = "";
+                    }
+                    console.log("secuencia: " + secuencia);
+                }
+                e.preventDefault();
+                if (e.keyCode == 39) {
+                    if (secuencia == "izquierda") {
+                        console.log("Código Activado");
+                        lock = true;
+                        pantallaDesbloqueada = true;
+                        isVisited(current + 1);
+                        nextSlide();
+                    }
+                    console.log("secuencia: " + secuencia);
+                    secuencia = "";
+                    e.preventDefault();
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

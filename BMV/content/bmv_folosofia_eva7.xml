@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<questions name="" backgroundButtonSelected="#1EAAB4" backgroundButton="#616161">
+<question text="La transparencia orienta todas nuestras acciones.[br/]Hacemos lo correcto en la forma correcta y en el tiempo correcto. Somos justos, honestos, congruentes y confiables. Nos conducimos bajo un entorno de cumplimiento y la ética es parte fundamental de nuestros cimientos." number="1">
+	<answer correct="true" number="1" text="Falso"  retro="" />
+	<answer correct="false" number="2" text="Verdadero"  retro="" />
+</question>
+<question text="La Excelencia impulsa nuestro trabajo diario.[br/]Con dedicación, profesionalismo y alto rendimiento, mantenemos los más altos estándares de calidad en nuestro actuar y en nuestras funciones. Somos apasionados y nos conducimos siempre con un objetivo en mente:  Hacer posible el funcionamiento del mercado de valores y derivados en México." number="2">
+	<answer correct="false" number="1" text="Falso"  retro="" />
+	<answer correct="true" number="2" text="Verdadero"  retro="" />
+</question>
+</questions>
+

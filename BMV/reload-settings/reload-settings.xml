@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Spawned from Reload Scorm Player - http://www.reload.ac.uk-->
+<!--This is a version 1.2.2 SCORM 1.2 Sequencer Model-->
+<navigation default="ORG-ACTIO">
+  <manifest_last_modified>1572369294654</manifest_last_modified>
+  <item id="ITEM-BMV00" organization="ORG-ACTIO">incomplete</item>
+</navigation>
+

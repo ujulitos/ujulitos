@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index course="BMV"  guide="content/guia_didactica.html" help="content/ayuda.html" logo="templateImages/logo.png">
+	<module name="MÓDULO 0. ¿QUIÉNES SOMOS?" number="1" image="">
+		<topic name="Bienvenida" file="content/bmv_m0_p1.html" audio="off"  lock="0"/>
+		<topic name="Objetivo" file="content/bmv_m0_p2.html" audio="off"  lock="0"/>
+		<topic name="¿Qué es la Bolsa Mexicana de Valores?" file="content/bmv_m0_p3.html" audio="off"  lock="0"/>
+		<topic name="Filosofía corporativa" file="content/bmv_m0_p4.html" audio="off"  lock="0"/>
+		<topic name="Ejercicio" file="content/bmv_m0_p5.html" audio="off"  lock="0"/>
+		<topic name="Organigrama" file="content/bmv_m0_p6.html" audio="off"  lock="0"/>
+		<topic name="Conoce las principales áreas de servicio" file="content/bmv_m0_p7.html" audio="off"  lock="0"/>
+		<topic name="Normatividad y cumplimiento" file="content/bmv_m0_p8.html" audio="off"  lock="0"/>
+		<topic name="Tu opinión es Importante" file="content/bmv_m0_p9.html" audio="off"  lock="0"/>
+		<topic name="Código de ética y conducta en BMV" file="content/bmv_m0_p10.html" audio="off"  lock="0"/>
+		<topic name="Manual de operaciones con valores" file="content/bmv_m0_p11.html" audio="off"  lock="0"/>
+		<topic name="Seguridad de la información" file="content/bmv_m0_p12.html" audio="off"  lock="0"/>
+		<topic name="Acceso al Curso – LMS Seguridad de la Información" file="content/bmv_m0_p13.html" audio="off"  lock="0"/>
+		<topic name="Manual de Políticas" file="content/bmv_m0_p14.html" audio="off"  lock="0"/>
+		<topic name="¿Qué es Phishing?" file="content/bmv_m0_p15.html" audio="off"  lock="0"/>
+		<topic name="Buenas prácticas de la Seguridad de la Información" file="content/bmv_m0_p16.html" audio="off"  lock="0"/>
+		<topic name="Ejercicio" file="content/bmv_m0_p17.html" audio="off"  lock="0"/>
+		<topic name="Cierre" file="content/bmv_m0_p18.html" audio="off"  lock="0"/>
+	</module>
+	
+ </index>

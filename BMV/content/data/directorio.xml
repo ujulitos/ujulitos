@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<personas>
+	<persona id="1" area="NÓMINA &amp; VALES DE DESPENSA" nombre="Patricia Aguilar" phone="EXT: 9012" />
+	<persona id="2" area="MESA DE SERVICIO" nombre="" phone="EXT: 9445"  />
+	<persona id="3" area="RECLUTAMIENTO" nombre="Mariana Parrazal / Patricia Figueroa" phone="EXT: 9046"  />
+	<persona id="4" area="IMSS" nombre="Jessica Pérez" phone="EXT: 9526"  />
+	<persona id="5" area="CAPACITACIÓN &amp; DESEMPEÑO " nombre="Héctor Pérez"  phone="EXT: 9028" />
+	<persona id="6" area="VACACIONES &amp; BENEFICIOS" nombre="Paola Gutiérrez"  phone="EXT: 9021" />
+	<persona id="7" area="SGMM &amp; RENUNCIAS" nombre="Silvia Mejía" phone="EXT: 9032"  />
+	<persona id="8" area="MANTENIMIENTO" nombre=""  phone="EXT: 8130" />
+    <persona id="9" area="ORGANIZACIÓN" nombre="Saraí Martínez" phone="EXT: 9277" />
+</personas>

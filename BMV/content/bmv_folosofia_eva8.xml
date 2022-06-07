@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<questions name="" backgroundButtonSelected="#1EAAB4" backgroundButton="#616161">
+<question text="Juan trabaja en un corporativo trasnacional en el cual, día con día, se relaciona con diversos clientes y proveedores, así como con colaboradores como él.[br/]Juan busca que sus acciones y comportamiento en días y horas no laborables, concuerden con su imagen y actitud dentro de la empresa, con sus compañeros, jefes y clientes de la misma.[br/]Asimismo, Juan se preocupa por actuar siempre de manera idónea, conduciendo sus actos de la mejor manera posible." number="1">
+	<answer correct="false" number="1" text="Honestidad"  retro="" />
+	<answer correct="false" number="2" text="Servicio al cliente"  retro="" />
+	<answer correct="true" number="2" text="Integridad"  retro="" />
+</question>
+<question text="Lorena es parte del equipo de contabilidad de una empresa, y día con día se preocupa por ejecutar su trabajo de la mejor forma posible, atendiendo las instrucciones de sus superiores, pero también a las necesidades de los clientes y de las áreas internas de soporte.[br/]Lorena sabe que las actividades que realiza ayudan a su área para dar los mejores resultados a la empresa en general, y decide continuar realizando su trabajo de esta manera." number="2">
+	<answer correct="false" number="1" text="Integridad"  retro="" />
+	<answer correct="true" number="2" text="Excelencia"  retro="" />
+	<answer correct="false" number="2" text="Transparencia"  retro="" />
+	</question>
+</questions>
+

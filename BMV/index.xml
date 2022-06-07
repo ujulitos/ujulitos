@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index course="BMV"  guide="content/guia_didactica.html" help="content/bmv_ayuda.html" logo="templateImages/logo.png">
+	<module name="MÓDULO 0. ¿QUIÉNES SOMOS?" number="1" image="">
+		<topic name="Objetivo" file="content/bmv_m0_p2.html" audio="off"  lock="0"/>
+		<topic name="Ejercicio" file="content/bmv_m0_p5.html" audio="off"  lock="0"/>
+		<topic name="Organigrama" file="content/bmv_m0_p6.html" audio="off"  lock="0"/>
+		<topic name="Conoce las principales áreas de servicio" file="content/bmv_m0_p7.html" audio="off"  lock="0"/>
+		<topic name="Cierre" file="content/bmv_m0_p18.html" audio="off"  lock="0"/>
+	</module>
+	
+ </index>

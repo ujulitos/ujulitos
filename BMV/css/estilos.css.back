@@ -1,0 +1,164 @@
+       @media (max-width: 991px){
+          	#textVisita{
+          		text-align: center;
+          	 } 
+           	#slider{
+          		position:relative;
+          		width:512px;
+          		left: 50%;
+          		transform: translateX(-50%);
+          		-webkit-transform: translateX(-50%);
+          	}
+          	#btnizq{
+          		 position:absolute;
+          		 top:80px;
+          		 left:20px;
+          		 cursor:pointer;
+          		}
+          	#btnder {
+          		position:absolute;
+          		top:80px;
+          		left:570px;
+          		cursor:pointer;
+          	}
+			.carousel-indicators{
+				left:-100%
+			}
+          	#imgslide1{
+          		content: url(../images/inicio/slide1peque.jpg);
+          	}
+          	#imgslide2{
+          		content: url(../images/inicio/slide2peque.jpg);
+          	}
+          	#imgslide3{
+          		content: url(../images/inicio/slide3peque.jpg);
+          	}
+          	#imgslide4{
+          		content: url(../images/inicio/slide4peque.jpg);
+          	}
+          }
+
+  		@media (min-width: 992px){
+          	#textVisita{
+          		text-align: right;
+          	 } 
+          	#slider{
+          		position:relative;
+          		width:1024px;
+          		left: 50%;
+          		transform: translateX(-50%);
+          		-webkit-transform: translateX(-50%);
+          	}
+          	#btnizq{
+          		 position:absolute;
+          		 top:180px;
+          		 left:20px;
+          		 cursor:pointer;
+          		}
+          	#btnder {
+          		position:absolute;
+          		top:180px;
+          		left:1115px;
+          		cursor:pointer;
+          	}
+          	#imgslide1{
+          		content: url(../images/inicio/slide1.jpg);
+          	}
+          	#imgslide2{
+          		content: url(../images/inicio/slide2.jpg);
+          	}
+          	#imgslide3{
+          		content: url(../images/inicio/slide3.jpg);
+          	}
+          	#imgslide4{
+          		content: url(../images/inicio/slide4.jpg);
+          	}
+          }    
+             
+             
+		div {
+				border: "#00000 solid 0.01em";
+				 text-align:center;
+			}
+			body{
+				font-family : KobernLight, RobotoLight, Calibri;
+				font-size	: 12pt;
+				background-color: rgb(236, 236, 236);
+				overflow-y:scroll;
+				overflow-x:hidden;
+			}
+			.textactio{
+				font-family : KobernLight, RobotoLight, Calibri;
+				font-size	: 12pt;
+			}
+			
+		.menu {
+        	color: #BFBFBF;
+        	font-family: KobernLight, RobotoLight, Calibri;
+        	font-size: 11pt;
+        	font-stretch : expanded;
+        	text-align: center;
+        	border-top-color: #D3D3D3;
+        	border-top-width: thin;
+        	border-top-style: solid;
+        	cursor: pointer;
+        	height:55px;
+        }	
+        
+        .current{
+        	border-top-color: #F8C010;
+        	border-top-width: thick;
+        	border-top-style: solid;
+        	background-color: #D9D9D9;
+        }
+        
+        .menu:hover{
+        	background-color: #D9D9D9;
+        }
+        
+        .footer{
+        	background-color: rgb(56,61,70);
+        	font-size	: 09pt;
+        	color: rgb(226,226,226);
+        }
+        .text {
+            color: rgb(226,226,226);
+        }
+             
+        .textFooter {
+         	border-right-width:thin;
+         	border-right-color:rgb(226,226,226);
+        	border-right-style:solid;
+            height: 25px;        	
+            color: rgb(226,226,226);
+        }
+        .link {
+            color: rgb(236,236,236);
+        }
+        .link:hover {
+            color: rgb(226,226,226);
+        }
+        
+        .labelformactio {
+				font-family: KobernLight, RobotoLight, Calibri;
+				font-size	: 12pt;
+				color 		: gray;
+				text-align	: left;
+		}
+		.inputformactio {
+				font-family: KobernLight, RobotoLight, Calibri;
+				font-size	:12pt;
+				background-color:rgb(241,241,241);
+		}
+		.vinculo{
+			cursor: pointer;
+		}
+
+  		
+  	#divYear {
+        	display:inline;
+        }
+        
+        .submenup:hover{
+           background-color:rgb(194,208,216); /* línea azul*/
+        }

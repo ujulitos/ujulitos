@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<questions name="" backgroundButtonSelected="#1EAAB4" backgroundButton="#616161">
+<question text="Mantener el liderazgo en los mercados de valores y derivados por la excelencia de nuestros servicios, experiencia e innovación, y de esta forma ser un catalizador del progreso económico." number="">
+	<answer correct="false" number="1" text="Filosofía Institucional" retro="1" />
+	<answer correct="false" number="2" text="Misión"  retro="" />
+	<answer correct="true" number="3" text="Visión"  retro="" />
+	<answer correct="false" number="4" text="Servicio al cliente"  retro="" />
+	<answer correct="false" number="5" text="Excelencia"  retro="" />
+</question>
+</questions>
+

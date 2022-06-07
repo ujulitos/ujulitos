@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<questions name="" backgroundButtonSelected="#1EAAB4" backgroundButton="#616161">
+<question text="Nuestra Filosofía Institucional" number="">
+	<answer correct="false" number="1" text="[br/]Hace posible el funcionamiento del mercado de valores y derivados en México" retro="" />
+	<answer correct="true" number="2" text="Refleja el propósito y establece los principios básicos así como el marco de referencia que debe guiar las decisiones estratégicas, tácticas y operativas de Grupo BMV."  retro="" />
+	<answer correct="false" number="3" text="Mantiene nuestro liderazgo en los mercados de valores y de derivados, por la excelencia de nuestros servicios, experiencia e innovación, y de esta forma ser un catalizador del progreso económico."  retro="" />
+</question>
+</questions>
+

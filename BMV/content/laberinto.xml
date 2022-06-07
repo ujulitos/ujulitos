@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<questions name="" backgroundButtonSelected="#20436A" backgroundButton="#A5B4C4">
+<question text="Documento donde se expresan a detalle cada una de las normas de cumplimiento, con el fin de evitar la existencia de operaciones no autorizadas cuando se tenga acceso a información privilegiada de alguna emisora y/o empresa del Grupo BMV. " type="text" number="1">
+	<answer correct="false" number="1" text="Código de conducta y reglamento" retro="" />
+	<answer correct="false" number="2" text="Manual de Políticas de Seguridad "  retro="" />
+	<answer correct="true" number="3" text="Manual de Operaciones con valores"  retro="" />
+</question>
+
+<question text="Selecciona la regla que el colaborador deberá considerar cuando realice Operaciones con Valor (OV)" type="text" number="2">
+	<answer correct="flase" number="1" text="Comunicar la celebración de un contrato a su jefe directo" retro="" />
+	<answer correct="false" number="2" text="Realizar operaciones contrarias antes de cumplir 3 meses de su celebración"  retro="" />
+	<answer correct="true" number="3" text="Confirmar la ejecución de la operación en un periodo de 10 días hábiles"  retro="" />
+</question>
+
+<question text="Área que se encarga de promover y difundir la ética y los valores institucionales. " type="text" number="3">
+	<answer correct="true" number="1" text="Área de Cumplimiento" retro="" />
+	<answer correct="false" number="2" text="Áreas de operación con valor "  retro="" />
+	<answer correct="false" number="3" text="Áreas de Valmer y SIF ICAP"  retro="" />
+</question>
+
+<question text="Es un ejemplo de conflicto de interés en el cual puede involucrarse un colaborador." type="text" number="4">
+	<answer correct="true" number="1" text="Buscar oportunidades de negocio personales con empresas que pertenezcan al Grupo BMV." retro="" />
+	<answer correct="false" number="2" text="Poseer un negocio familiar, aunque éste no tenga relación alguna con el Grupo BMV. "  retro="" />
+	<answer correct="false" number="3" text="Tener una relación sentimental en jerarquía indirecta que se ha informado al área de Cumplimiento. " retro="" />
+</question>
+
+<question text="Son los 3 elementos en los que se basa la Seguridad de la Información" type="text" number="5">
+	<answer correct="false" number="1" text="Responsabilidad, Integridad y Disponibilidad" retro="" />
+	<answer correct="true" number="2" text="Confidencialidad, Integridad y Disponibilidad"  retro="" />
+	<answer correct="false" number="3" text="Integridad, Disposición y Privacidad "  retro="" />
+</question>
+
+<question text="La Disponibilidad de la información se refiere a…" type="text" number="6">
+	<answer correct="false" number="1" text="Que solo el nivel jerárquico más alto tenga acceso a la información del negocio" retro="" />
+	<answer correct="false" number="2" text="Que cualquier persona dentro de la empresa tenga libre acceso a la información "  retro="" />
+	<answer correct="true" number="3" text="Que la información se encuentre disponible según los requerimientos del negocio "  retro="" />
+</question>
+
+<question text="Se conoce como Phishing a la actividad que tiene como objetivo…" type="text" number="7">
+	<answer correct="true" number="1" text= "Convencer al usuario de realizar alguna acción, como dar clic en un vínculo malicioso o brindar información confidencial" retro="" />
+	<answer correct="false" number="2" text="Persuadir al usuario para que brinde información sobre su familia por vía telefónica"  retro="" />
+	<answer correct="false" number="3" text="Convencer al usuario de participar en negocios ilícitos o no reconocidos por la empresa"  retro="" />
+</question>
+
+<question text="Es una característica común de un correo electrónico  utilizado como Phishing." type="text" number="8">
+	<answer correct="false" number="1" text="El formato que se utiliza es profesional y sin errores gramáticos " retro="" />
+	<answer correct="false" number="2" text="El remitente suele ser una persona conocida por el colaborador "  retro="" />
+	<answer correct="true" number="3" text="El contenido incluye archivos, enlaces o frases sospechosas "  retro="" />
+</question>
+
+<question text="Acción que te permite contribuir en la Seguridad de la Información" type="text" number="9">
+	<answer correct="false" number="1" text="El jefe directo de cada colaborador deberá conocer la contraseña de su equipo" retro="" />
+	<answer correct="true" number="2" text="El colaborador es responsable de validar la identidad de quien solicite acceso a la información "  retro="" />
+	<answer correct="false" number="3" text="Todos los documentos confidenciales deben imprimirse y resguardarse en carpetas especiales. "  retro="" />
+</question>
+
+<question text="Cuando se identifica un ataque Phishing, el colaborador debe…" type="text" number="10">
+	<answer correct="false" number="1" text="Eliminar el correo e Informar a su jefe directo  inmediatamente" retro="" />
+	<answer correct="true" number="2" text="No eliminar el mensaje y notificar al área de Seguridad de la Información inmediatamente  "  retro="" />
+	<answer correct="false" number="3" text="No eliminar el mensaje y bloquear al remitente"  retro="" />
+</question>
+
+
+</questions>
