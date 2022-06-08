@@ -1008,7 +1008,7 @@
                 audio1.pause();
             } // audio!=null
             resetScoreHTML(); // resetea los scores de las prácticas y exámenes.
-            // setTimeout("completaSCORM()", 500);
+            setTimeout("completaSCORM()", 500);
         } //loadSlide
 
         function loadSpecifiedSlide(fileName) {
@@ -1671,7 +1671,8 @@
                         } //for j topics raw
                         for (j = 0; j < t.length; j++) {
                             suspendObject.M[i].t[j] = new na(j, false);
-                            topicsArray[totalTopics] = new topic(t[j].getAttribute("name"), m[i].getAttribute("name") + " | " + t[j].getAttribute("name"), t[j].getAttribute("file"), t[j].getAttribute("audio"), t[j].getAttribute("audiofile"), t[j].getAttribute("sim"), ((j + 1) + " de " + tArray.length), i, j);
+                            // topicsArray[totalTopics] = new topic(t[j].getAttribute("name"), m[i].getAttribute("name") + " | " + t[j].getAttribute("name"), t[j].getAttribute("file"), t[j].getAttribute("audio"), t[j].getAttribute("audiofile"), t[j].getAttribute("sim"), ((j + 1) + " de " + tArray.length), i, j);
+                            topicsArray[totalTopics] = new topic(t[j].getAttribute("name"), m[i].getAttribute("name"), t[j].getAttribute("file"), t[j].getAttribute("audio"), t[j].getAttribute("audiofile"), t[j].getAttribute("sim"), ((j + 1) + " de " + tArray.length), i, j);
                             totalTopics++;
                         } //for j topics in module
 
@@ -1768,6 +1769,8 @@
                     } // if hasAttribute help
                 } // success
             }); //ajax index
+
+            fatality();
 
         }); //ready
 
@@ -3243,7 +3246,7 @@
                 scorm.save(); //save all data that has already been sent 
 
                 // si todas las pantallas están visitadas
-                // setTimeout("completaSCORM()", 500);
+                setTimeout("completaSCORM()", 500);
             } // lmsConnected
         }
 
