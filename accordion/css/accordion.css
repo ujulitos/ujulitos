@@ -1,0 +1,172 @@
+ .accordion button {
+     position: relative;
+     display: block;
+     text-align: left;
+     width: 100%;
+     height: 60px;
+     padding: 0em 2em;
+     color: #fff;
+     font-size: 1.15rem;
+     font-weight: bold;
+     border: none;
+     background: none;
+     outline: none;
+ }
+
+ .accordion button:hover,
+ .accordion button:focus {
+     cursor: pointer;
+     /* color: #03b5d2; */
+ }
+
+ .accordion button:hover::after,
+ .accordion button:focus::after {
+     cursor: pointer;
+     /* color: #03b5d2; */
+     /* border: 1px solid #03b5d2; */
+ }
+
+ .accordion button .accordion-title {
+     padding: 1em 1.5em 1em 0;
+ }
+
+ .accordion button .icon {
+     display: inline-block;
+     position: absolute;
+     top: 18px;
+     right: 1em;
+     width: 22px;
+     height: 22px;
+     border: 1px solid;
+     border-radius: 22px;
+ }
+
+ .accordion button .icon::before {
+     display: block;
+     position: absolute;
+     content: "";
+     top: 9px;
+     left: 5px;
+     width: 10px;
+     height: 2px;
+     background: currentColor;
+ }
+
+ .accordion button .icon::after {
+     display: block;
+     position: absolute;
+     content: "";
+     top: 5px;
+     left: 9px;
+     width: 2px;
+     height: 10px;
+     background: currentColor;
+ }
+
+ .icon_menos::after {
+    display: none !important;
+ }
+
+ .icon_mas::after {
+    display: block !important;
+ }
+
+ .accordion .accordion-content {
+     display: none;
+     overflow: hidden;
+     margin: 0px 40px 30px 30px;
+ }
+
+ .accordion .accordion-item {
+     border-bottom: 0;
+ }
+
+ .botonMasInfo1 {
+     background-image: linear-gradient(to right, #757ac7, #2e348c) !important;
+     filter: brightness(100%);
+     transition: 0.3s;
+ }
+
+ .botonMasInfo1:hover {
+     filter: brightness(120%);
+ }
+
+ .botonMasInfo2 {
+     background: linear-gradient(to right, #6290bb, #3d6ead) !important;
+     filter: brightness(100%);
+     transition: 0.3s;
+ }
+
+ .botonMasInfo2:hover {
+     filter: brightness(120%);
+ }
+
+ .botonMasInfo3 {
+     background: linear-gradient(to right, #62a6bb, #3d8aad) !important;
+     filter: brightness(100%);
+     transition: 0.3s;
+ }
+
+ .botonMasInfo3:hover {
+     filter: brightness(120%);
+ }
+
+ .botonMasInfo4 {
+     background-image: linear-gradient(to right, #588f58, #2b7031) !important;
+     filter: brightness(100%);
+     transition: 0.3s;
+ }
+
+ .botonMasInfo4:hover {
+     filter: brightness(120%);
+ }
+
+ .botonMasInfo5 {
+     background-image: linear-gradient(to right, #5eb456, #34912b) !important;
+     filter: brightness(100%);
+     transition: 0.3s;
+ }
+
+ .botonMasInfo5:hover {
+     filter: brightness(120%);
+ }
+
+ .botonMasInfo6 {
+     background-image: linear-gradient(to right, #54be74, #30885c) !important;
+     filter: brightness(100%);
+     transition: 0.3s;
+ }
+
+ .botonMasInfo6:hover {
+     filter: brightness(120%);
+ }
+
+ .botonMasInfo7 {
+     background-image: linear-gradient(to right, #dd632b, #a53d22) !important;
+     filter: brightness(100%);
+     transition: 0.3s;
+ }
+
+ .botonMasInfo7:hover {
+     filter: brightness(120%);
+ }
+
+ .botonMasInfo8 {
+     background-image: linear-gradient(to right, #df731b, #8d4013) !important;
+     filter: brightness(100%);
+     transition: 0.3s;
+ }
+
+ .botonMasInfo8:hover {
+     filter: brightness(120%);
+ }
+
+ .botonMasInfo9 {
+     background-image: linear-gradient(to right, #d38724, #9b5b13) !important;
+     filter: brightness(100%);
+     transition: 0.3s;
+ }
+
+ .botonMasInfo9:hover {
+     filter: brightness(120%);
+ }
